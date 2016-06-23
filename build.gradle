@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'maven'
 
 group 'de.hhu.stups'
 
@@ -8,6 +9,6 @@ mavenCentral()
 
 dependencies {
 compile 'junit:junit:4.12'
-compile 'virtual-kata-lib'
+compile 'de.hhu.stups:virtual-kata-lib:+'
 }
 
