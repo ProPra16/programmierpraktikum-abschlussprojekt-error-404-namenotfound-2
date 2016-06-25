@@ -3,5 +3,8 @@
  */
 public class PresetDataBase {
     static boolean babysteps;
+    static int babystepstime =0;
     static boolean timetracking;
+    static String codeclassname;
+    static String testclassname;
 }

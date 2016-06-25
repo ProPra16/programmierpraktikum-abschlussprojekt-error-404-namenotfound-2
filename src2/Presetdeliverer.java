@@ -12,8 +12,8 @@ public class Presetdeliverer {
         static String classcomment;
         static String testname;
         public static void main (String [] args){
-            File presettingcode = new File("presetcode.java");
-            File presettingtest = new File ("presettest.java");
+            //File presettingcode = new File("presetcode.java");
+            //File presettingtest = new File ("presettest.java");
             String vorlagecode = "//$\n"+
                     "public class §{\n"+
                     "   public static void main (String [] args){\n" +
@@ -23,12 +23,15 @@ public class Presetdeliverer {
                                 "import org.junit.Test;\n"+
                                 "public class §{\n"+
                                 "   @Test\n" +
-                                "   public void testSomething(){\n+" +
+                                "   public void testSomething(){\n" +
                                 "   }\n"+
                                 "}";
             //classname,classcomment,testname,babysteps und timetracker Einstellungen
             //Werden eingetragen bzw. eingelesen.
             XMLReader.reader();
+
+            File presettingcode = new File(PresetDataBase.codeclassname+".java");
+            File presettingtest = new File (PresetDataBase.testclassname+".java");
             //Die Lücken der CodeStrings werden gefüllt.
             vorlagecode = fillvorlagecode(vorlagecode);
             vorlagetest = fillvorlagetest(vorlagetest);

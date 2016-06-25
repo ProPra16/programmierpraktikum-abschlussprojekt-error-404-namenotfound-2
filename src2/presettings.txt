@@ -1,5 +1,5 @@
 <description>Konvertiert arabische in roemische Zahlen.
 <class name>RomanNumberConverter
 <test name>RomanNumberConverterTest
-<babysteps value>False
+<babysteps value>True #02:20
 <timetracking value>True
