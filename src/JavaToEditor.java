@@ -16,28 +16,14 @@ import java.util.ArrayList;
 /**
  * Created by Martin on 22.06.2016.
  */
-public class JavaToEditor extends Application{
-    @Override
-    public void start(Stage PriamryStage){
-        TextArea code = new TextArea();
-        ArrayList<String> puffer = reader("JavaFile.java");
-        for(int i = 0; i<puffer.size();i++){
-            if (i==0) code.appendText(puffer.get(i));
-            else code.appendText("\n"+puffer.get(i));
-        }
+public class JavaToEditor {
 
-        StackPane root = new StackPane();
-        root.getChildren().add(code);
-        PriamryStage.setScene(new Scene(root,500,500));
-        PriamryStage.show();
-    }
+    private String filename;
 
-    public static void main (String[] args){
-        launch(args);
-    }
+    public JavaToEditor(String name){this.filename = name;}
 
-    public ArrayList<String> reader(String name) {
-        File source = new File("src/"+name);
+    public ArrayList<String> read() {
+        File source = new File("src/"+filename);
         Path pfad = Paths.get(source.getAbsolutePath());
 
         ArrayList<String> buffer = new ArrayList<String>();
