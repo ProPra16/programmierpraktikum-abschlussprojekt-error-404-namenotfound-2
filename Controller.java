@@ -16,6 +16,7 @@ import javafx.scene.text.Text;
 public class Controller {
 	void initialize(){
 		phase=1;
+		BabystepClock babyclock=new BabystepClock();
 	}
 
 private int phase;
@@ -25,19 +26,46 @@ private Button checkbutton;
 private Button backbutton;
 @FXML 
 public Arc green;
+@FXML 
+public Arc blue;
+@FXML 
+public Arc red;
+
+public void checkandback(){
+	check();
+	goback();
+}
 
 @FXML
-public void check(Event event){
+public void check(){
+	babyclock.reset();
+	managephasegui(phase-1);				//je nachdem ob phase erst um 1 verringert wird und dann goback(); aufgerufen wird oder andersherum!! genauso wie bei check();
 	System.out.println("you just checked!");
-	green.setVisible(true);
+	
 }
 
 @FXML
-public void goback(Event event){
+public void goback(){
+	managephasegui(phase+1);
 	System.out.println("you just went back!");
-	green.setVisible(false);
+}
+
+private void managephasegui(int phase){//benutzung: managephasegui(aktuelle Phase)
+	if (phase==1){
+		green.setVisible(true);
+		red.setVisible(false);
+		blue.setVisible(false);
+	}
+	else if(phase==2){
+		green.setVisible(false);
+		red.setVisible(true);
+		blue.setVisible(false);
+	}
+	else{
+		green.setVisible(false);
+		red.setVisible(false);
+		blue.setVisible(true);
+	}
 }
 }
-/*
- * initialize:  file to text
- * */
+

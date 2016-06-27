@@ -15,7 +15,7 @@
             <Arc fill="#7c7c7c" layoutX="260.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="30.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
             <Arc fill="#7c7c7c" layoutX="262.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="150.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
             <Arc fill="#7c7c7c" layoutX="261.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="-90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-            <Arc fill="#ff1f1f" layoutX="261.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="-90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fx:id="red" fill="#ff1f1f" layoutX="261.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="-90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
             <Button fx:id="checkbutton" layoutX="210.0" layoutY="464.0" mnemonicParsing="false" onAction="#check" text="Check" textFill="#44c348">
                <font>
                   <Font name="Arial Bold" size="24.0" />
@@ -27,7 +27,7 @@
                </font>
             </Button>
             <Arc fx:id="green" fill="#1fff35" layoutX="262.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="30.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
-            <Arc fill="DODGERBLUE" layoutX="262.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="150.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fx:id="blue" fill="DODGERBLUE" layoutX="262.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="150.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
             <Label layoutX="201.0" layoutY="26.0" text="Write Test Code" />
             <Label layoutX="155.0" layoutY="199.0" text="Refactor" />
             <Label layoutX="300.0" layoutY="199.0" text="Write Matching Code" />
@@ -57,9 +57,9 @@
             </Pane>
             <Pane layoutX="616.0" layoutY="-26.0" prefHeight="200.0" prefWidth="687.0">
                <children>
-                  <Label layoutX="-1.0" layoutY="51.0" prefHeight="150.0" prefWidth="687.0" text="BÄM! VERKACKT">
+                  <Label alignment="CENTER" layoutX="-1.0" layoutY="51.0" prefHeight="150.0" prefWidth="687.0" text="Check failed/worked">
                      <font>
-                        <Font size="92.0" />
+                        <Font size="69.0" />
                      </font>
                   </Label>
                </children>
