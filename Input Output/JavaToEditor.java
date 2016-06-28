@@ -22,7 +22,7 @@ public class JavaToEditor {
 
     public JavaToEditor(String name){this.filename = name;}
 
-    public ArrayList<String> read() {
+    public String read() {
         File source = new File("src/"+filename);
         Path pfad = Paths.get(source.getAbsolutePath());
 
@@ -31,6 +31,12 @@ public class JavaToEditor {
             buffer = (ArrayList<String>) Files.readAllLines(pfad);
         }
         catch (IOException e){}
-        return buffer;
+        String code = "";
+        for(int i = 0; i<buffer.size();i++){
+            if (i==0) code = code + buffer.get(i);
+
+            else code = code + "\n" + buffer.get(i);
+        }
+        return code;
     }
 }
