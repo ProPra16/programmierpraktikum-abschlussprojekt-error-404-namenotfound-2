@@ -17,7 +17,7 @@ public class Mastermain extends Application {
 	}
 
 	public void start(Stage primaryStage) throws Exception {
-		Parent root=(Parent) FXMLLoader.load(getClass().getResource("bsp.fxml"));
+		Parent root=(Parent) FXMLLoader.load(getClass().getResource("GUI.fxml"));
 		primaryStage.setTitle("Beispiel");
 		primaryStage.setScene(new Scene(root));
 		primaryStage.show();
