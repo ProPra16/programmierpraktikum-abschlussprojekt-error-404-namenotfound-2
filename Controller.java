@@ -30,6 +30,12 @@ public Arc green;
 public Arc blue;
 @FXML 
 public Arc red;
+@FXML
+public Label greentext;
+@FXML
+public Label redtext;
+@FXML
+public Label bluetext;
 
 public void checkandback(){
 	check();
@@ -55,16 +61,25 @@ private void managephasegui(int phase){//benutzung: managephasegui(aktuelle Phas
 		green.setVisible(true);
 		red.setVisible(false);
 		blue.setVisible(false);
+		greentext.setVisible(true);
+		redtext.setVisible(false);
+		bluetext.setVisible(false);
 	}
 	else if(phase==2){
 		green.setVisible(false);
 		red.setVisible(true);
 		blue.setVisible(false);
+		greentext.setVisible(false);
+		redtext.setVisible(true);
+		bluetext.setVisible(false);
 	}
 	else{
 		green.setVisible(false);
 		red.setVisible(false);
 		blue.setVisible(true);
+		greentext.setVisible(false);
+		redtext.setVisible(false);
+		bluetext.setVisible(true);
 	}
 }
 }

@@ -8,34 +8,40 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <center>
-      <Pane prefHeight="671.0" prefWidth="406.0" BorderPane.alignment="CENTER">
+      <Pane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
-            <Arc fill="#7c7c7c" layoutX="260.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="30.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-            <Arc fill="#7c7c7c" layoutX="262.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="150.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-            <Arc fill="#7c7c7c" layoutX="261.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="-90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-            <Arc fx:id="red" fill="#ff1f1f" layoutX="261.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="-90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-            <Button fx:id="checkbutton" layoutX="210.0" layoutY="464.0" mnemonicParsing="false" onAction="#check" text="Check" textFill="#44c348">
+            <Arc fill="#7c7c7c" layoutX="250.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="30.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#7c7c7c" layoutX="250.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="150.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#7c7c7c" layoutX="250.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="-90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fx:id="red" fill="#ff1f1f" layoutX="250.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="-90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
+            <Button fx:id="checkbutton" layoutX="160.0" layoutY="241.0" mnemonicParsing="false" onAction="#check" prefHeight="82.0" prefWidth="180.0" text="Check" textFill="#44c348">
                <font>
-                  <Font name="Arial Bold" size="24.0" />
+                  <Font name="Arial Bold" size="40.0" />
                </font>
             </Button>
-            <Button fx:id="backbutton" layoutX="224.0" layoutY="344.0" mnemonicParsing="false" onAction="#goback" text="back" textFill="#b91d1d">
+            <Button fx:id="backbutton" layoutX="212.0" layoutY="420.0" mnemonicParsing="false" onAction="#goback" text="back" textFill="#b91d1d">
                <font>
                   <Font size="22.0" />
                </font>
             </Button>
-            <Arc fx:id="green" fill="#1fff35" layoutX="262.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="30.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
-            <Arc fx:id="blue" fill="DODGERBLUE" layoutX="262.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="150.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-            <Label layoutX="201.0" layoutY="26.0" text="Write Test Code" />
-            <Label layoutX="155.0" layoutY="199.0" text="Refactor" />
-            <Label layoutX="300.0" layoutY="199.0" text="Write Matching Code" />
+            <Arc fx:id="green" fill="#1fff35" layoutX="250.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="30.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
+            <Arc fx:id="blue" fill="DODGERBLUE" layoutX="250.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="150.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
+            <Label fx:id="greentext" layoutX="208.0" layoutY="28.0" text="Write Test Code" visible="false" />
+            <Label fx:id="bluetext" layoutX="158.0" layoutY="199.0" text="Refactor" visible="false" />
+            <Label fx:id="redtext" layoutX="293.0" layoutY="199.0" text="Write Matching Code" visible="false" />
+            <Label alignment="CENTER" layoutY="324.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="500.0" text="Check failed/worked">
+               <font>
+                  <Font size="69.0" />
+               </font>
+            </Label>
+            <TextArea layoutX="10.0" layoutY="482.0" prefHeight="380.0" prefWidth="480.0" />
          </children>
       </Pane>
    </center>
    <top>
-      <Pane prefHeight="152.0" prefWidth="1794.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="150.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
          <children>
             <Pane layoutX="223.0" layoutY="1.0" prefHeight="150.0" prefWidth="250.0">
                <children>
@@ -55,11 +61,11 @@
                   </Label>
                </children>
             </Pane>
-            <Pane layoutX="616.0" layoutY="-26.0" prefHeight="200.0" prefWidth="687.0">
+            <Pane layoutX="616.0" layoutY="-26.0" prefHeight="174.0" prefWidth="687.0">
                <children>
-                  <Label alignment="CENTER" layoutX="-1.0" layoutY="51.0" prefHeight="150.0" prefWidth="687.0" text="Check failed/worked">
+                  <Label alignment="CENTER" layoutX="226.0" layoutY="67.0" prefHeight="76.0" prefWidth="236.0" text="Timer">
                      <font>
-                        <Font size="69.0" />
+                        <Font size="50.0" />
                      </font>
                   </Label>
                </children>
@@ -68,9 +74,9 @@
       </Pane>
    </top>
    <left>
-      <TextArea prefHeight="1000.0" prefWidth="700.0" BorderPane.alignment="CENTER" />
+      <TextArea minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="700.0" BorderPane.alignment="CENTER" />
    </left>
    <right>
-      <TextArea prefHeight="1000.0" prefWidth="700.0" BorderPane.alignment="CENTER" />
+      <TextArea minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="700.0" BorderPane.alignment="CENTER" />
    </right>
 </BorderPane>
