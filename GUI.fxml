@@ -31,7 +31,7 @@
             <Label fx:id="greentext" layoutX="208.0" layoutY="28.0" text="Write Test Code" visible="false" />
             <Label fx:id="bluetext" layoutX="158.0" layoutY="199.0" text="Refactor" visible="false" />
             <Label fx:id="redtext" layoutX="293.0" layoutY="199.0" text="Write Matching Code" visible="false" />
-            <Label alignment="CENTER" layoutY="294.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="500.0" text="Check failed/worked">
+            <Label alignment="CENTER" layoutY="324.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="500.0" text="Check failed/worked">
                <font>
                   <Font size="69.0" />
                </font>
