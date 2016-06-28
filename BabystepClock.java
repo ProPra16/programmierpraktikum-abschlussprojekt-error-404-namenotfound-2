@@ -29,17 +29,13 @@ public class BabystepClock {
             @Override
             public void run() {
                 while (maxtime >= currenttime && running){
+                    //Ausgabelabel für die Zeit, mit echtzeit Aktuallisierung
                     timelabel.setText("TIMER: "+currenttime+"/"+maxtime);
+                    //Wenn die Zeitgrenze erreicht ist checkandback
                     if (maxtime == currenttime){
                         checkandback();
                         reset();
                     }
-                    /*Dieses System.out. muss mit einem Label veerknüpft werden sodass man es anzeigen kann.
-                    * System.out.println(currenttime+"/"+maxtime);
-                    * Label time = new Label();
-                    * BabystepClock timer = new BabystepClock();
-                    * time.setText(timer.currenttime+"/"+timer.maxtime);
-                    */
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
@@ -51,22 +47,29 @@ public class BabystepClock {
         });
         time.start();
     }
+    //Setzt den Zähler zurück auf 0.
     public void reset (){
         currenttime =0;
     }
+
+    //Methode für das Zurücksetzen des Anfangzustandes der GUI von der letzten Runde
     public void checkandback(){
         /*Hier werden die beiden Methoden aufgerufen für Check und Back.
         classname.back();
         classname.check();
         */
     }
+
+    //Stopt den Timer
     public void stop(){
         running=false;
     }
+
+    //Startet den Timer wieder neu.
     public void restart(){
         running=true;
         this.reset();
-	   this.start();
+        this.start();
     }
 
 }
