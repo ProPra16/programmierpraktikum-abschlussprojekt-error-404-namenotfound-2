@@ -1,3 +1,5 @@
+import javafx.scene.control.Label;
+
 /**
  * Created by jonas on 25.06.2016.
  * Hier wie besprochen Babysteps.
@@ -7,12 +9,15 @@
  * - Ist die Zeit am angegebenen Limit wir back und check ausgeführt und der Timer auf 0 zurück gesetzt.
  * - Sobald der Check Button gedrückt wird. muss man danach sofort einmal die reset() Methode aufrufen
  * - Idee ist es gibt nur einen Timer, dieser läuft das gesamte Programm über.
- * - Soll die BabystepClock angehalten werden geschieht dies durch das aufrufen der Methode end();
+ * - Soll die BabystepClock angehalten werden geschieht dies durch das aufrufen der Methode stop();
+ * - Soll die BabystepClock wieder gestartet werden, geschieht dies durch restart();
+ * - Das BabystepClock Objekt besitzt ein Label welches die Aktuelle Zeit immer aktuallisiert besitzt.
  */
 public class BabystepClock {
     int maxtime;
     volatile int currenttime;
     volatile boolean running=true;
+    volatile Label timelabel;
 
     public BabystepClock(){
         maxtime= PresetDataBase.babystepstime;
@@ -24,9 +29,10 @@ public class BabystepClock {
             @Override
             public void run() {
                 while (maxtime >= currenttime && running){
+                    timelabel.setText("TIMER: "+currenttime+"/"+maxtime);
                     if (maxtime == currenttime){
                         checkandback();
-                        resettimer();
+                        reset();
                     }
                     /*Dieses System.out. muss mit einem Label veerknüpft werden sodass man es anzeigen kann.
                     * System.out.println(currenttime+"/"+maxtime);
@@ -45,7 +51,7 @@ public class BabystepClock {
         });
         time.start();
     }
-    public void resettimer (){
+    public void reset (){
         currenttime =0;
     }
     public void checkandback(){
@@ -54,8 +60,13 @@ public class BabystepClock {
         classname.check();
         */
     }
-    public void end(){
+    public void stop(){
         running=false;
+    }
+    public void restart(){
+        running=true;
+        this.reset();
+	   this.start();
     }
 
 }
