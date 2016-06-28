@@ -36,7 +36,7 @@
                   <Font size="69.0" />
                </font>
             </Label>
-            <TextArea layoutX="10.0" layoutY="482.0" prefHeight="380.0" prefWidth="480.0" />
+            <TextArea editable="false" layoutX="10.0" layoutY="482.0" prefHeight="380.0" prefWidth="480.0" />
          </children>
       </Pane>
    </center>
@@ -63,7 +63,7 @@
             </Pane>
             <Pane layoutX="616.0" layoutY="-26.0" prefHeight="174.0" prefWidth="687.0">
                <children>
-                  <Label alignment="CENTER" layoutX="226.0" layoutY="67.0" prefHeight="76.0" prefWidth="236.0" text="Timer">
+                  <Label fx:id="timerlabel" alignment="CENTER" layoutX="226.0" layoutY="67.0" prefHeight="76.0" prefWidth="236.0" text="Timer">
                      <font>
                         <Font size="50.0" />
                      </font>
@@ -74,9 +74,9 @@
       </Pane>
    </top>
    <left>
-      <TextArea minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="700.0" BorderPane.alignment="CENTER" />
+      <TextArea fx:id="testcodefield" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="700.0" BorderPane.alignment="CENTER" />
    </left>
    <right>
-      <TextArea minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="700.0" BorderPane.alignment="CENTER" />
+      <TextArea fx:id="codefield" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="700.0" BorderPane.alignment="CENTER" />
    </right>
 </BorderPane>

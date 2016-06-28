@@ -17,9 +17,10 @@ public class Controller {
 	void initialize(){
 		phase=1;
 		BabystepClock babyclock=new BabystepClock();
+		timerlabel=babyclock.timelabel;
 	}
 
-private int phase;
+private static int phase;
 @FXML
 private Button checkbutton;
 @FXML
@@ -36,6 +37,8 @@ public Label greentext;
 public Label redtext;
 @FXML
 public Label bluetext;
+@FXML
+public Label timerlabel;
 
 public void checkandback(){
 	check();
@@ -45,25 +48,28 @@ public void checkandback(){
 @FXML
 public void check(){
 	babyclock.reset();
-	managephasegui(phase-1);				//je nachdem ob phase erst um 1 verringert wird und dann goback(); aufgerufen wird oder andersherum!! genauso wie bei check();
+	managephasegui(phase);				
 	System.out.println("you just checked!");
 	
 }
 
 @FXML
 public void goback(){
-	managephasegui(phase+1);
+	managephasegui(phase);
 	System.out.println("you just went back!");
+	babyclock.reset();
 }
 
 private void managephasegui(int phase){//benutzung: managephasegui(aktuelle Phase)
 	if (phase==1){
+		babyclock.restart;
 		green.setVisible(true);
 		red.setVisible(false);
 		blue.setVisible(false);
 		greentext.setVisible(true);
 		redtext.setVisible(false);
 		bluetext.setVisible(false);
+		backbutton.setDisable(false);
 	}
 	else if(phase==2){
 		green.setVisible(false);
@@ -72,14 +78,17 @@ private void managephasegui(int phase){//benutzung: managephasegui(aktuelle Phas
 		greentext.setVisible(false);
 		redtext.setVisible(true);
 		bluetext.setVisible(false);
+		backbutton.setDisable(false);
 	}
-	else{
+	else if(phase==3){
+		babyclock.stop();
 		green.setVisible(false);
 		red.setVisible(false);
 		blue.setVisible(true);
 		greentext.setVisible(false);
 		redtext.setVisible(false);
 		bluetext.setVisible(true);
+		backbutton.setDisable(true);
 	}
 }
 }
