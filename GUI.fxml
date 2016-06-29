@@ -45,7 +45,7 @@
          <children>
             <Pane layoutX="223.0" layoutY="1.0" prefHeight="150.0" prefWidth="250.0">
                <children>
-                  <Label prefHeight="150.0" prefWidth="250.0" text="Test Code">
+                  <Label fx:id="testlabel" prefHeight="150.0" prefWidth="250.0" text="Test Code">
                      <font>
                         <Font size="43.0" />
                      </font>
@@ -54,7 +54,7 @@
             </Pane>
             <Pane layoutX="1518.0" layoutY="-1.0" prefHeight="150.0" prefWidth="250.0">
                <children>
-                  <Label prefHeight="150.0" prefWidth="250.0" text="Code">
+                  <Label fx:id="codelabel" prefHeight="150.0" prefWidth="250.0" text="Code">
                      <font>
                         <Font size="43.0" />
                      </font>

@@ -23,7 +23,7 @@ public class JavaToEditor {
     public JavaToEditor(String name){this.filename = name;}
 
     public String read() {
-        File source = new File("src/"+filename);
+        File source = new File(filename+".java");
         Path pfad = Paths.get(source.getAbsolutePath());
 
         ArrayList<String> buffer = new ArrayList<String>();

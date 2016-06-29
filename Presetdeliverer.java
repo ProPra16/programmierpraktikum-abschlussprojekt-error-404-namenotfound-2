@@ -11,7 +11,7 @@ public class Presetdeliverer {
         static String classname;
         static String classcomment;
         static String testname;
-        public static void main (String [] args){
+        public static void main (){
             //File presettingcode = new File("presetcode.java");
             //File presettingtest = new File ("presettest.java");
             String vorlagecode = "//$\n"+
