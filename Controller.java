@@ -41,7 +41,7 @@ public class Controller {
         });
         time.start();
     }*/
-	
+	EditorToJava etj;
 	JavaToEditor jte;
 	BabystepClock babyclock;
 	
@@ -63,6 +63,16 @@ public class Controller {
 	@FXML
 	public TextArea codefield,testcodefield;
 	
+	public void savetest(){
+		etj=new EditorToJava(Presetdeliverer.testname);
+		etj.save(testcodefield.getText());
+	}
+	
+	public void savecode(){
+		etj=new EditorToJava(Presetdeliverer.classname);
+		etj.save(codefield.getText());
+	}
+	
 	public void checkandback(){
 		check();
 		goback();
@@ -70,10 +80,7 @@ public class Controller {
 	
 	@FXML
 	public void check(){
-		phase++;
-		if(phase==4){
-			phase=1;
-		}
+
 		babyclock.reset();
 		managephasegui(phase);				
 		System.out.println("you just checked!");

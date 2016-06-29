@@ -14,7 +14,7 @@ public class EditorToJava {
     public EditorToJava(String name){filename = name;}
 
     public void save(String a){
-        File tmp = new File("src/"+filename);
+        File tmp = new File(filename+".java");
         Path p = Paths.get(tmp.getAbsolutePath());
 
         try {
