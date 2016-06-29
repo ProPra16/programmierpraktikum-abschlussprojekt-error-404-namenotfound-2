@@ -10,15 +10,15 @@ import vk.core.api.TestResult;
 public class phasechanger {
 
 	public static void check() {
-		
-		String codeclassname = "defaultcode";
-		/*get classname from database
-		*String codecontent = .getText();
+		/*
+		String codeclassname = PresetDataBase.codeclassname;
+		get classname from database
+		String codecontent = codefield.getText();
 		CompilationUnit Code = new CompilationUnit(codeclassname, codecontent, false);
 		
-		String testclassname = "defaulttest";
+		String testclassname = PresetDataBase.testclassname;
 		*get from database
-		*String testcontent = .getText();
+		String testcontent = testcodefield.getText();
 		CompilationUnit Test = new CompilationUnit(testclassname, testcontent, true);
 		
 		JavaStringCompiler compiler = CompilerFactory.getCompiler(Code, Test);
@@ -33,23 +33,19 @@ public class phasechanger {
 			switch(phase){ 
         		case 1: 
            			if (failedtests==1){
-        *  				save textfield test to java
-        *  				disable textfiled test
-        *  				enable textfield code
+          				savetest();
            				phase=2;
            			}
             		break; 
         		case 2: 
            			if (failedtests==0){
-        *  				save textfield code to java
+          				savecode();
            				phase=3;
            			}
             		break; 
         		case 3: 
            			if (failedtests==0){
-        *  				save textfield code to java
-        *   			disable textfiled code
-        *   			enable textfield test
+          				savecode();
            				phase=1;
            			} 
            			break; 
