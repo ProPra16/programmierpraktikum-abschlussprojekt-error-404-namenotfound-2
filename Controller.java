@@ -17,10 +17,34 @@ public class Controller {
 		jte=new JavaToEditor(Presetdeliverer.testname);
 		testcodefield.setText(jte.read());
 		managephasegui(phase);
+		//timermanager();
+	    
+
 	}
+	
+	/*public void timermanager(){
+        Thread time = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true){
+                   timerlabel.setText("TIMER: "+babyclock.currenttime+"/"+babyclock.maxtime);
+                   
+             
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    
+                }
+            }
+        });
+        time.start();
+    }*/
+	
 	JavaToEditor jte;
 	BabystepClock babyclock;
-	//timerlabel=babyclock.timelabel;
+	
 	
 	private static int phase;
 	
@@ -31,7 +55,10 @@ public class Controller {
 	public Arc green,blue,red;
 	
 	@FXML
-	public Label greentext,redtext,bluetext,timerlabel,testlabel,codelabel;
+	public Label greentext,redtext,bluetext,testlabel,codelabel;
+	
+	@FXML
+	volatile Label timerlabel;
 	
 	@FXML
 	public TextArea codefield,testcodefield;
