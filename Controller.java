@@ -161,10 +161,15 @@ public class Controller {
 	
 	@FXML
 	public void goback(){
-		phase--;
-		managephasegui(phase);
-		System.out.println("you just went back!");
-		babyclock.reset();
+		if(phase == 2){
+			codefield.text(new JavaToEditor(Presetdeliverer.classname));
+			phase = 1;
+			babyclock.reset();
+			managephasegui(phase);
+		}
+		else if(phase == 3){
+			codefield.text(new JavaToEditor(Presetdeliverer.classname));
+		}
 	}
 	
 	private void managephasegui(int phase){//benutzung: managephasegui(aktuelle Phase)
@@ -205,7 +210,7 @@ public class Controller {
 			greentext.setVisible(false);
 			redtext.setVisible(false);
 			bluetext.setVisible(true);
-			backbutton.setDisable(true);
+			backbutton.setDisable(false);
 			codefield.setDisable(false);
 			testcodefield.setDisable(false);
 			codelabel.setDisable(false);
