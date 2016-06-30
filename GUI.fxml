@@ -36,7 +36,7 @@
                   <Font size="69.0" />
                </font>
             </Label>
-            <TextArea editable="false" layoutX="10.0" layoutY="482.0" prefHeight="380.0" prefWidth="480.0" />
+            <TextArea fx:id="errorfield" editable="false" layoutX="10.0" layoutY="482.0" prefHeight="380.0" prefWidth="480.0" />
          </children>
       </Pane>
    </center>
@@ -65,7 +65,7 @@
                <children>
                   <Label fx:id="timerlabel" alignment="CENTER" layoutX="226.0" layoutY="67.0" prefHeight="76.0" prefWidth="236.0" text="Timer">
                      <font>
-                        <Font size="50.0" />
+                        <Font size="22.0" />
                      </font>
                   </Label>
                </children>

@@ -6,6 +6,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.shape.Arc;
+import java.util.Collection;
+
+import vk.core.api.CompilationUnit;
+import vk.core.api.CompileError;
+import vk.core.api.CompilerFactory;
+import vk.core.api.CompilerResult;
+import vk.core.api.JavaStringCompiler;
+import vk.core.api.TestResult;
+
 
 
 public class Controller {
@@ -37,6 +46,9 @@ public class Controller {
 	                    Platform.runLater(new Runnable(){
 	                    	@Override public void run(){
 	                            timerlabel.setText("TIMER: "+babyclock.currenttime+"/"+babyclock.maxtime);
+	                            if(babyclock.currenttime>=babyclock.maxtime){
+	                            	backandcheck();
+	                            }
 	                    	}
 	                    });
                 	}
@@ -65,7 +77,7 @@ public class Controller {
 	volatile Label timerlabel;
 	
 	@FXML
-	public TextArea codefield,testcodefield;
+	public TextArea codefield,testcodefield,errorfield;
 	
 	public void savetest(){
 		etj=new EditorToJava(Presetdeliverer.testname);
@@ -77,17 +89,70 @@ public class Controller {
 		etj.save(codefield.getText());
 	}
 	
-	public void checkandback(){
-		check();
+	public void backandcheck(){
 		goback();
+		check();
 	}
 	
 	@FXML
 	public void check(){
-		phase++;
-		if(phase==4){
-			phase=1;
+		String codecontent = codefield.getText();
+		CompilationUnit Code = new CompilationUnit(Presetdeliverer.classname, codecontent, false);
+	
+		String testcontent = testcodefield.getText();
+		CompilationUnit Test = new CompilationUnit(Presetdeliverer.testname, testcontent, true);
+		
+		JavaStringCompiler compiler = CompilerFactory.getCompiler(Code, Test);
+		
+		compiler.compileAndRunTests();
+		CompilerResult compileresults= compiler.getCompilerResult();
+		if (compileresults.hasCompileErrors()==false){
+			TestResult testresults = compiler.getTestResult();
+		
+			int failedtests = testresults.getNumberOfFailedTests();
+		
+			switch(phase){ 
+        		case 1: 
+           			if (failedtests==1){
+          				savetest();
+           				phase=2;
+           			}
+            		break; 
+        		case 2: 
+           			if (failedtests==0){
+          				savecode();
+           				phase=3;
+           			}
+            		break; 
+        		case 3: 
+           			if (failedtests==0){
+          				savecode();
+           				phase=1;
+           			} 
+           			break; 
+        		default: 
+           			System.out.println("Fehler!");
+           			break;
+        	} 
+		
+		} else {
+			CompilerResult output = compiler.getCompilerResult();
+			Collection<CompileError> codeerrors = output.getCompilerErrorsForCompilationUnit(Code);
+			if (codeerrors.size()!=0){
+				String Fehlermeldung = codeerrors.toString();
+				errorfield.setText(errorfield.getText()+"\n"+Fehlermeldung); 
+				errorfield.setText(errorfield.getText()+"\n"+codeerrors.size());  
+			}else{
+				Collection<CompileError> testerrors = output.getCompilerErrorsForCompilationUnit(Test);
+				if (testerrors.size()!=0){
+					String Fehlermeldung = testerrors.toString();
+					errorfield.setText(errorfield.getText()+"\n"+Fehlermeldung); 
+					errorfield.setText(errorfield.getText()+"\n"+(codeerrors.size()));  
+
+				}
+			}
 		}
+		
 		babyclock.reset();
 		managephasegui(phase);				
 		System.out.println("you just checked!");
@@ -96,10 +161,15 @@ public class Controller {
 	
 	@FXML
 	public void goback(){
-		phase--;
-		managephasegui(phase);
-		System.out.println("you just went back!");
-		babyclock.reset();
+		if(phase == 2){
+			codefield.setText(new JavaToEditor(Presetdeliverer.classname).read());
+			phase = 1;
+			babyclock.reset();
+			managephasegui(phase);
+		}
+		else if(phase == 3){
+			codefield.setText(new JavaToEditor(Presetdeliverer.classname).read());
+		}
 	}
 	
 	private void managephasegui(int phase){//benutzung: managephasegui(aktuelle Phase)
@@ -140,7 +210,7 @@ public class Controller {
 			greentext.setVisible(false);
 			redtext.setVisible(false);
 			bluetext.setVisible(true);
-			backbutton.setDisable(true);
+			backbutton.setDisable(false);
 			codefield.setDisable(false);
 			testcodefield.setDisable(false);
 			codelabel.setDisable(false);
