@@ -162,13 +162,13 @@ public class Controller {
 	@FXML
 	public void goback(){
 		if(phase == 2){
-			codefield.text(new JavaToEditor(Presetdeliverer.classname));
+			codefield.setText(new JavaToEditor(Presetdeliverer.classname).read());
 			phase = 1;
 			babyclock.reset();
 			managephasegui(phase);
 		}
 		else if(phase == 3){
-			codefield.text(new JavaToEditor(Presetdeliverer.classname));
+			codefield.setText(new JavaToEditor(Presetdeliverer.classname).read());
 		}
 	}
 	
