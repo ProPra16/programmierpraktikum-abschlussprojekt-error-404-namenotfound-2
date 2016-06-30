@@ -17,18 +17,24 @@ import java.util.ArrayList;
  * Created by Martin on 22.06.2016.
  */
 public class JavaToEditor {
-
+/*try (PrintStream out = new PrintStream(new FileOutputStream(fileName))) {
+    out.print(text);
+    } catch (FileNotFoundException e) {
+	e.printStackTrace();
+}*/
     private String filename;
 
     public JavaToEditor(String name){this.filename = name;}
 
     public String read() {
-        File source = new File(filename+".java");
-        Path pfad = Paths.get(source.getAbsolutePath());
+        /*File source = new File(filename+".java");
+        Path pfad = Paths.get(source.getAbsolutePath());*/
 
         ArrayList<String> buffer = new ArrayList<String>();
-        try {
-            buffer = (ArrayList<String>) Files.readAllLines(pfad);
+        try(File source = new File(filename+".java");
+            Path pfad = Paths.get(source.getAbsolutePath())) {
+            
+        	buffer = (ArrayList<String>) Files.readAllLines(pfad);
         }
         catch (IOException e){}
         String code = "";
