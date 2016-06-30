@@ -1,5 +1,6 @@
 
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,30 +18,33 @@ public class Controller {
 		jte=new JavaToEditor(Presetdeliverer.testname);
 		testcodefield.setText(jte.read());
 		managephasegui(phase);
-		//timermanager();
+		timermanager();
 	    
 
 	}
 	
-	/*public void timermanager(){
+	public void timermanager(){
         Thread time = new Thread(new Runnable() {
             @Override
             public void run() {
                 while (true){
-                   timerlabel.setText("TIMER: "+babyclock.currenttime+"/"+babyclock.maxtime);
-                   
-             
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    
+                	if(babyclock.running){
+	                    try {
+	                        Thread.sleep(1000);
+	                    } catch (InterruptedException e) {
+	                        e.printStackTrace();
+	                    }
+	                    Platform.runLater(new Runnable(){
+	                    	@Override public void run(){
+	                            timerlabel.setText("TIMER: "+babyclock.currenttime+"/"+babyclock.maxtime);
+	                    	}
+	                    });
+                	}
                 }
             }
         });
         time.start();
-    }*/
+    }
 	EditorToJava etj;
 	JavaToEditor jte;
 	BabystepClock babyclock;
@@ -80,15 +84,19 @@ public class Controller {
 	
 	@FXML
 	public void check(){
-
+		phase++;
+		if(phase==4){
+			phase=1;
+		}
 		babyclock.reset();
 		managephasegui(phase);				
 		System.out.println("you just checked!");
-		
+
 	}
 	
 	@FXML
 	public void goback(){
+		phase--;
 		managephasegui(phase);
 		System.out.println("you just went back!");
 		babyclock.reset();
@@ -96,7 +104,7 @@ public class Controller {
 	
 	private void managephasegui(int phase){//benutzung: managephasegui(aktuelle Phase)
 		if (phase==1){
-		//	babyclock.restart();
+			babyclock.restart();
 			green.setVisible(true);
 			red.setVisible(false);
 			blue.setVisible(false);
@@ -125,7 +133,7 @@ public class Controller {
 
 		}
 		else if(phase==3){
-			//babyclock.stop();
+			babyclock.stop();
 			green.setVisible(false);
 			red.setVisible(false);
 			blue.setVisible(true);

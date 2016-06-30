@@ -17,42 +17,40 @@ public class BabystepClock {
     int maxtime;
     volatile int currenttime;
     volatile boolean running=true;
-    volatile Label timelabel;
+    volatile Label timelabel=new Label();
+    Thread time;
 
     public BabystepClock(){
         maxtime= PresetDataBase.babystepstime;
-        currenttime=0;
+        currenttime=-1;
         this.start();
     }
     public void start(){
         Thread time = new Thread(new Runnable() {
             @Override
             public void run() {
-                while (maxtime >= currenttime && running){
-                   // timelabel.setText("TIMER: "+currenttime+"/"+maxtime);
-                    if (maxtime == currenttime){
-                        checkandback();
-                        reset();
-                    }
-                    /*Dieses System.out. muss mit einem Label veerknüpft werden sodass man es anzeigen kann.
-                    * System.out.println(currenttime+"/"+maxtime);
-                    * Label time = new Label();
-                    * BabystepClock timer = new BabystepClock();
-                    * time.setText(timer.currenttime+"/"+timer.maxtime);
-                    */
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    currenttime++;
+                while (true){
+                	if(maxtime >= currenttime&&running){
+	                	timelabel.setText("TIMER: "+currenttime+"/"+maxtime);
+	                    if (maxtime == currenttime){
+	                        checkandback();
+	                        reset();
+	                    }
+	                    
+	                    try {
+	                        Thread.sleep(1000);
+	                    } catch (InterruptedException e) {
+	                        e.printStackTrace();
+	                    }
+	                    currenttime++;
+                	}
                 }
             }
         });
         time.start();
     }
     public void reset (){
-        currenttime =0;
+        currenttime =-1;
     }
     public void checkandback(){
         /*Hier werden die beiden Methoden aufgerufen für Check und Back.
@@ -62,11 +60,13 @@ public class BabystepClock {
     }
     public void stop(){
         running=false;
+        
     }
     public void restart(){
-        running=true;
+        
+        
         this.reset();
-	   this.start();
+        running=true;
     }
 
 }
