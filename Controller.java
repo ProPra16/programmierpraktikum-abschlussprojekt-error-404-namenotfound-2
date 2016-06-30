@@ -1,71 +1,152 @@
 
 
-import javafx.event.Event;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.shape.Arc;
-import javafx.scene.shape.ArcBuilder;
-import javafx.scene.text.Text;
+
 
 public class Controller {
-	void initialize(){
+	public void initialize(){
+		Presetdeliverer.main();
 		phase=1;
-		BabystepClock babyclock=new BabystepClock();
+		babyclock=new BabystepClock();
+		jte=new JavaToEditor(Presetdeliverer.classname);
+		codefield.setText(jte.read());
+		jte=new JavaToEditor(Presetdeliverer.testname);
+		testcodefield.setText(jte.read());
+		managephasegui(phase);
+		timermanager();
+	    
+
 	}
-
-private int phase;
-@FXML
-private Button checkbutton;
-@FXML
-private Button backbutton;
-@FXML 
-public Arc green;
-@FXML 
-public Arc blue;
-@FXML 
-public Arc red;
-
-public void checkandback(){
-	check();
-	goback();
-}
-
-@FXML
-public void check(){
-	babyclock.reset();
-	managephasegui(phase-1);				//je nachdem ob phase erst um 1 verringert wird und dann goback(); aufgerufen wird oder andersherum!! genauso wie bei check();
-	System.out.println("you just checked!");
 	
-}
+	public void timermanager(){
+        Thread time = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true){
+                	if(babyclock.running){
+	                    try {
+	                        Thread.sleep(1000);
+	                    } catch (InterruptedException e) {
+	                        e.printStackTrace();
+	                    }
+	                    Platform.runLater(new Runnable(){
+	                    	@Override public void run(){
+	                            timerlabel.setText("TIMER: "+babyclock.currenttime+"/"+babyclock.maxtime);
+	                    	}
+	                    });
+                	}
+                }
+            }
+        });
+        time.start();
+    }
+	EditorToJava etj;
+	JavaToEditor jte;
+	BabystepClock babyclock;
+	
+	
+	private static int phase;
+	
+	@FXML
+	private Button checkbutton,backbutton;
+	
+	@FXML 
+	public Arc green,blue,red;
+	
+	@FXML
+	public Label greentext,redtext,bluetext,testlabel,codelabel;
+	
+	@FXML
+	volatile Label timerlabel;
+	
+	@FXML
+	public TextArea codefield,testcodefield;
+	
+	public void savetest(){
+		etj=new EditorToJava(Presetdeliverer.testname);
+		etj.save(testcodefield.getText());
+	}
+	
+	public void savecode(){
+		etj=new EditorToJava(Presetdeliverer.classname);
+		etj.save(codefield.getText());
+	}
+	
+	public void checkandback(){
+		check();
+		goback();
+	}
+	
+	@FXML
+	public void check(){
+		phase++;
+		if(phase==4){
+			phase=1;
+		}
+		babyclock.reset();
+		managephasegui(phase);				
+		System.out.println("you just checked!");
 
-@FXML
-public void goback(){
-	managephasegui(phase+1);
-	System.out.println("you just went back!");
-}
+	}
+	
+	@FXML
+	public void goback(){
+		phase--;
+		managephasegui(phase);
+		System.out.println("you just went back!");
+		babyclock.reset();
+	}
+	
+	private void managephasegui(int phase){//benutzung: managephasegui(aktuelle Phase)
+		if (phase==1){
+			babyclock.restart();
+			green.setVisible(true);
+			red.setVisible(false);
+			blue.setVisible(false);
+			greentext.setVisible(true);
+			redtext.setVisible(false);
+			bluetext.setVisible(false);
+			backbutton.setDisable(false);
+			codefield.setDisable(true);
+			testcodefield.setDisable(false);
+			codelabel.setDisable(true);
+			testlabel.setDisable(false);
 
-private void managephasegui(int phase){//benutzung: managephasegui(aktuelle Phase)
-	if (phase==1){
-		green.setVisible(true);
-		red.setVisible(false);
-		blue.setVisible(false);
+		}
+		else if(phase==2){
+			green.setVisible(false);
+			red.setVisible(true);
+			blue.setVisible(false);
+			greentext.setVisible(false);
+			redtext.setVisible(true);
+			bluetext.setVisible(false);
+			backbutton.setDisable(false);
+			codefield.setDisable(false);
+			testcodefield.setDisable(true);
+			codelabel.setDisable(false);
+			testlabel.setDisable(true);
+
+		}
+		else if(phase==3){
+			babyclock.stop();
+			green.setVisible(false);
+			red.setVisible(false);
+			blue.setVisible(true);
+			greentext.setVisible(false);
+			redtext.setVisible(false);
+			bluetext.setVisible(true);
+			backbutton.setDisable(true);
+			codefield.setDisable(false);
+			testcodefield.setDisable(false);
+			codelabel.setDisable(false);
+			testlabel.setDisable(false);
+
+		}
 	}
-	else if(phase==2){
-		green.setVisible(false);
-		red.setVisible(true);
-		blue.setVisible(false);
-	}
-	else{
-		green.setVisible(false);
-		red.setVisible(false);
-		blue.setVisible(true);
-	}
-}
 }
 
