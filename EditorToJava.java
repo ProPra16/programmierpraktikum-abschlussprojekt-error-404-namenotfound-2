@@ -14,14 +14,15 @@ public class EditorToJava {
     public EditorToJava(String name){filename = name;}
 
     public void save(String a){
-        File tmp = new File(filename+".java");
-        Path p = Paths.get(tmp.getAbsolutePath());
+        /*File tmp = new File(filename+".java");
+        Path p = Paths.get(tmp.getAbsolutePath());*/
 
-        try {
+        try(File tmp = new File(filename+".java");
+        Path p = Paths.get(tmp.getAbsolutePath());
+        FileWriter writer = new FileWriter(tmp)) {
+        	
             FileWriter writer = new FileWriter(tmp);
             writer.write(a);
-            writer.flush();
-            writer.close();
         }
         catch(IOException e){}
 
