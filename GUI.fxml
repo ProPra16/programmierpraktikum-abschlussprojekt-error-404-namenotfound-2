@@ -70,6 +70,25 @@
                   </Label>
                </children>
             </Pane>
+            <MenuBar minWidth="-Infinity" prefHeight="25.0" prefWidth="1920.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="closebutton" mnemonicParsing="false" onAction="#exit" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
          </children>
       </Pane>
    </top>

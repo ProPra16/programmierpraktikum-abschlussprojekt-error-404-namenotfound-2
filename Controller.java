@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.shape.Arc;
 import java.util.Collection;
@@ -78,6 +79,14 @@ public class Controller {
 	
 	@FXML
 	public TextArea codefield,testcodefield,errorfield;
+	
+	@FXML
+	public MenuItem closebutton;
+	
+	@FXML
+	public void exit(){
+		System.exit(0);
+	}
 	
 	public void savetest(){
 		etj=new EditorToJava(Presetdeliverer.testname);
