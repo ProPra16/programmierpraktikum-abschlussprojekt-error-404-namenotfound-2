@@ -53,10 +53,7 @@ public class BabystepClock {
         currenttime =-1;
     }
     public void checkandback(){
-        /*Hier werden die beiden Methoden aufgerufen für Check und Back.
-        classname.back();
-        classname.check();
-        */
+        //Controller.checkandback();
     }
     public void stop(){
         running=false;
