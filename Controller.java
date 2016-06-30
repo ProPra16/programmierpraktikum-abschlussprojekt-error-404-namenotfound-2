@@ -46,6 +46,9 @@ public class Controller {
 	                    Platform.runLater(new Runnable(){
 	                    	@Override public void run(){
 	                            timerlabel.setText("TIMER: "+babyclock.currenttime+"/"+babyclock.maxtime);
+	                            if(babyclock.currenttime>=babyclock.maxtime){
+	                            	backandcheck();
+	                            }
 	                    	}
 	                    });
                 	}
@@ -86,9 +89,9 @@ public class Controller {
 		etj.save(codefield.getText());
 	}
 	
-	public void checkandback(){
-		check();
+	public void backandcheck(){
 		goback();
+		check();
 	}
 	
 	@FXML
