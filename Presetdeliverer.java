@@ -1,6 +1,4 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -11,17 +9,13 @@ public class Presetdeliverer {
         static String classname;
         static String classcomment;
         static String testname;
-        public static void main (){
+        public static void main (String [] args){
             //File presettingcode = new File("presetcode.java");
             //File presettingtest = new File ("presettest.java");
-            String vorlagecode = "//$\n"+
-                    "public class ง{\n"+
-                    "   public static void main (String [] args){\n" +
-                    "   }\n"+
-                    "}";
-            String vorlagetest ="import static org.junit.Assert.*;\n"+
+            String vorlagecode = presetcode();
+            String vorlagetest = "import static org.junit.Assert.*;\n"+
                                 "import org.junit.Test;\n"+
-                                "public class ง{\n"+
+                                "public class ยง{\n"+
                                 "   @Test\n" +
                                 "   public void testSomething(){\n" +
                                 "   }\n"+
@@ -60,7 +54,7 @@ public class Presetdeliverer {
             String start ="";
             String end ="";
             int i=0;
-            while(vorlage.charAt(i) != 'ง'){
+            while(vorlage.charAt(i) != '?'){
                 i++;
             }
             start = vorlage.substring(0,i)+classname;
@@ -71,7 +65,7 @@ public class Presetdeliverer {
             String start="";
             String end="";
             int i =0;
-            while(testvorlage.charAt(i)!='ง'){
+            while(testvorlage.charAt(i)!='ยง'){
                 i++;
             }
             start = testvorlage.substring(0,i)+testname;
@@ -99,5 +93,29 @@ public class Presetdeliverer {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+        public static String presetcode (){
+            File code = new File("presetcode.txt");
+            Path p = Paths.get(code.getAbsolutePath());
+            boolean filenotendet=true;
+            String currentreadingline="";
+            String output ="";
+            try {
+                FileReader reader = new FileReader(code);
+                BufferedReader buffer = new BufferedReader(reader);
+                while (filenotendet) {
+                    currentreadingline = buffer.readLine();
+                    if(currentreadingline !=null){
+                        output+=currentreadingline+"\n";
+                    }
+                    if(currentreadingline==null) filenotendet=false;
+
+                }
+            } catch(FileNotFoundException e){
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return output;
         }
     }
