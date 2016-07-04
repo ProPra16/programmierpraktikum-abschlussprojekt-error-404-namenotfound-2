@@ -1,101 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.paint.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
-   <center>
-      <Pane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+<AnchorPane prefHeight="825.0" prefWidth="1395.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Arc fill="#7c7c7c" layoutX="250.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="30.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-            <Arc fill="#7c7c7c" layoutX="250.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="150.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-            <Arc fill="#7c7c7c" layoutX="250.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="-90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-            <Arc fx:id="red" fill="#ff1f1f" layoutX="250.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="-90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
-            <Button fx:id="checkbutton" layoutX="160.0" layoutY="241.0" mnemonicParsing="false" onAction="#check" prefHeight="82.0" prefWidth="180.0" text="Check" textFill="#44c348">
-               <font>
-                  <Font name="Arial Bold" size="40.0" />
-               </font>
-            </Button>
-            <Button fx:id="backbutton" layoutX="212.0" layoutY="420.0" mnemonicParsing="false" onAction="#goback" text="back" textFill="#b91d1d">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Button>
-            <Arc fx:id="green" fill="#1fff35" layoutX="250.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="30.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
-            <Arc fx:id="blue" fill="DODGERBLUE" layoutX="250.0" layoutY="137.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="150.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
-            <Label fx:id="greentext" layoutX="208.0" layoutY="28.0" text="Write Test Code" visible="false" />
-            <Label fx:id="bluetext" layoutX="158.0" layoutY="199.0" text="Refactor" visible="false" />
-            <Label fx:id="redtext" layoutX="293.0" layoutY="199.0" text="Write Matching Code" visible="false" />
-            <Label alignment="CENTER" layoutY="324.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="96.0" prefWidth="500.0" text="Check failed/worked">
-               <font>
-                  <Font size="69.0" />
-               </font>
-            </Label>
-            <TextArea fx:id="errorfield" editable="false" layoutX="10.0" layoutY="482.0" prefHeight="380.0" prefWidth="480.0" />
-         </children>
-      </Pane>
-   </center>
-   <top>
-      <Pane prefHeight="150.0" prefWidth="1920.0" BorderPane.alignment="CENTER">
-         <children>
-            <Pane layoutX="223.0" layoutY="1.0" prefHeight="150.0" prefWidth="250.0">
+            <StackPane>
                <children>
-                  <Label fx:id="testlabel" prefHeight="150.0" prefWidth="250.0" text="Test Code">
-                     <font>
-                        <Font size="43.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Pane layoutX="1518.0" layoutY="-1.0" prefHeight="150.0" prefWidth="250.0">
-               <children>
-                  <Label fx:id="codelabel" prefHeight="150.0" prefWidth="250.0" text="Code">
-                     <font>
-                        <Font size="43.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Pane layoutX="616.0" layoutY="-26.0" prefHeight="174.0" prefWidth="687.0">
-               <children>
-                  <Label fx:id="timerlabel" alignment="CENTER" layoutX="226.0" layoutY="67.0" prefHeight="76.0" prefWidth="236.0" text="Timer">
+                  <Label fx:id="timerlabel" alignment="CENTER" prefHeight="76.0" prefWidth="236.0" text="Timer">
                      <font>
                         <Font size="22.0" />
                      </font>
                   </Label>
+                  <AnchorPane>
+                     <children>
+                        <StackPane layoutX="55.0" layoutY="21.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="100.0">
+                           <children>
+                              <Label fx:id="testlabel" text="Test Code">
+                                 <font>
+                                    <Font size="43.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <StackPane layoutX="734.0" layoutY="21.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="100.0">
+                           <children>
+                              <Label fx:id="codelabel" text="Code">
+                                 <font>
+                                    <Font size="43.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </AnchorPane>
                </children>
-            </Pane>
-            <MenuBar minWidth="-Infinity" prefHeight="25.0" prefWidth="1920.0">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem fx:id="closebutton" mnemonicParsing="false" onAction="#exit" text="Close" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
+            </StackPane>
+            <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextArea fx:id="testcodefield" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+                  <VBox>
+                     <children>
+                        <StackPane prefHeight="244.0" prefWidth="478.0">
+                           <children>
+                              <Group>
+                                 <children>
+                                    <Arc fx:id="red" fill="#ff1f1f" layoutX="56.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="-90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
+                                    <Arc fill="#7c7c7c" layoutX="126.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="150.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                                    <Arc fx:id="blue" fill="DODGERBLUE" layoutX="196.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="150.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
+                                    <Arc fill="#7c7c7c" layoutX="126.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="30.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" AnchorPane.leftAnchor="65.37822341918945" AnchorPane.rightAnchor="121.37822341918945" />
+                                    <Arc fill="#7c7c7c" layoutX="126.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="-90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                                    <Arc fx:id="green" fill="#1fff35" layoutX="126.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="30.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
+                                 </children>
+                              </Group>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label fx:id="bluetext" alignment="CENTER_RIGHT" prefHeight="251.0" prefWidth="174.0" text="Refactor">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="greentext" alignment="TOP_CENTER" prefHeight="257.0" prefWidth="155.0" text="Write Test">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="redtext" prefHeight="248.0" prefWidth="173.0" text="Write Code">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </StackPane>
+                        <StackPane prefHeight="105.0" prefWidth="478.0">
+                           <children>
+                              <Button fx:id="checkbutton" mnemonicParsing="false" onAction="#check" prefHeight="82.0" prefWidth="180.0" text="Check" textFill="#44c348">
+                                 <font>
+                                    <Font name="Arial Bold" size="40.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </StackPane>
+                        <StackPane prefHeight="76.0" prefWidth="478.0">
+                           <children>
+                              <Button fx:id="backbutton" mnemonicParsing="false" onAction="#goback" text="back" textFill="#b91d1d">
+                                 <font>
+                                    <Font size="22.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </StackPane>
+                        <StackPane>
+                           <children>
+                              <Label alignment="CENTER" prefHeight="31.0" prefWidth="201.0" text="Terminal">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <TextArea fx:id="errorfield" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </TextArea>
+                     </children>
+                  </VBox>
+                  <VBox HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextArea fx:id="codefield" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
          </children>
-      </Pane>
-   </top>
-   <left>
-      <TextArea fx:id="testcodefield" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="700.0" BorderPane.alignment="CENTER" />
-   </left>
-   <right>
-      <TextArea fx:id="codefield" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="700.0" BorderPane.alignment="CENTER" />
-   </right>
-</BorderPane>
+      </VBox>
+   </children>
+</AnchorPane>
