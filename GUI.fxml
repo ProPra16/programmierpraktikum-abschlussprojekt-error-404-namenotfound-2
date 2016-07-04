@@ -54,16 +54,6 @@
                      <children>
                         <StackPane prefHeight="244.0" prefWidth="478.0">
                            <children>
-                              <Group>
-                                 <children>
-                                    <Arc fx:id="red" fill="#ff1f1f" layoutX="56.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="-90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
-                                    <Arc fill="#7c7c7c" layoutX="126.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="150.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-                                    <Arc fx:id="blue" fill="DODGERBLUE" layoutX="196.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="150.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
-                                    <Arc fill="#7c7c7c" layoutX="126.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="30.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" AnchorPane.leftAnchor="65.37822341918945" AnchorPane.rightAnchor="121.37822341918945" />
-                                    <Arc fill="#7c7c7c" layoutX="126.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="-90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
-                                    <Arc fx:id="green" fill="#1fff35" layoutX="126.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="30.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
-                                 </children>
-                              </Group>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Label fx:id="bluetext" alignment="CENTER_RIGHT" prefHeight="251.0" prefWidth="174.0" text="Refactor">
@@ -83,6 +73,16 @@
                                     </Label>
                                  </children>
                               </HBox>
+                              <Group>
+                                 <children>
+                                    <Arc fill="#7c7c7c" layoutX="126.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="-90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                                    <Arc fill="#7c7c7c" layoutX="126.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="30.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" AnchorPane.leftAnchor="65.37822341918945" AnchorPane.rightAnchor="121.37822341918945" />
+                                    <Arc fill="#7c7c7c" layoutX="126.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="150.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                                    <Arc fx:id="blue" fill="DODGERBLUE" layoutX="126.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="150.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
+                                    <Arc fx:id="green" fill="#1fff35" layoutX="126.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="30.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
+                                    <Arc fx:id="red" fill="#ff1f1f" layoutX="126.0" layoutY="84.0" length="120.0" radiusX="70.0" radiusY="70.0" startAngle="-90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" visible="false" />
+                                 </children>
+                              </Group>
                            </children>
                         </StackPane>
                         <StackPane prefHeight="105.0" prefWidth="478.0">
