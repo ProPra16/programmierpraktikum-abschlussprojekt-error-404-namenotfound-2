@@ -25,7 +25,7 @@ public class XMLReader {
                         } else if (linestart.equals("<babysteps ")) {
                             PresetDataBase.babysteps = Presetsetter.setbabysteps(currentreadingline);
                         } else if (linestart.equals("<timetracki")) {
-                            PresetDataBase.timetracking = Presetsetter.settimetracking(currentreadingline);
+                            PresetDataBase.atdd = Presetsetter.setatdd(currentreadingline);
                         }
                     }
                     if(currentreadingline==null) filenotendet=false;

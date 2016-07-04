@@ -48,7 +48,7 @@ public class Presetsetter {
             return false;
         }
     }
-    public static boolean settimetracking (String inputline){
+    public static boolean setatdd (String inputline){
         int i=0;
         while(inputline.charAt(i) != '>'){
             i++;

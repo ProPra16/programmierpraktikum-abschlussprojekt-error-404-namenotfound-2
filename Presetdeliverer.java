@@ -11,13 +11,11 @@ public class Presetdeliverer {
         static String classname;
         static String classcomment;
         static String testname;
+
         public static void main (){
-        	
-           
-                    
             String vorlagetest ="import static org.junit.Assert.*;\n"+
                                 "import org.junit.Test;\n"+
-                                "public class ß{\n"+
+                                "public class %{\n"+
                                 "   @Test\n" +
                                 "   public void testSomething(){\n" +
                                 "   }\n"+
@@ -30,13 +28,18 @@ public class Presetdeliverer {
             File presettingtest = new File (PresetDataBase.testclassname+".java");          
             vorlagetest = fillvorlagetest(vorlagetest);
             writetestfile(presettingtest,vorlagetest);
+            //Wenn ATDD aktiv, dann Erstelle eine weitere Testdatei, speziell f√ºr ATDD.
+            if (PresetDataBase.atdd){
+                File presetatddtest = new File ("ATDD"+PresetDataBase.testclassname+".java");
+                writetestfile(presetatddtest,vorlagetest);
+            }
         }
- 
+        //
         public static String fillvorlagetest (String testvorlage){
             String start="";
             String end="";
             int i =0;
-            while(testvorlage.charAt(i)!='ß'){
+            while(testvorlage.charAt(i)!='%'){
                 i++;
             }
             start = testvorlage.substring(0,i)+testname;
