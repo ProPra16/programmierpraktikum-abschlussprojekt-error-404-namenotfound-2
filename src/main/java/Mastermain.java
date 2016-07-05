@@ -18,7 +18,7 @@ public class Mastermain extends Application {
 
 	public void start(Stage primaryStage) throws Exception {
 		Parent root=(Parent) FXMLLoader.load(getClass().getResource("GUI.fxml"));
-		primaryStage.setTitle("Beispiel");
+		primaryStage.setTitle("Program Stepper");
 		primaryStage.setScene(new Scene(root));
 		primaryStage.show();
 		

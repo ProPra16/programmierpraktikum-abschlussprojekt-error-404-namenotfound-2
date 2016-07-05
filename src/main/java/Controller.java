@@ -1,5 +1,5 @@
 
-//goback() and check() by Yulian, timemanager()by Julian and Jonas, rest by Julian
+//goback()by Yulian, check() by Michael, timemanager()by Jonas and Julian, rest by Julian
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -123,18 +123,24 @@ public class Controller {
            			if (failedtests==1){
           				savetest();
            				phase=2;
+           				babyclock.reset();
+           				managephasegui(phase);
            			}
             		break; 
         		case 2: 
            			if (failedtests==0){
           				savecode();
            				phase=3;
+           				babyclock.reset();
+           				managephasegui(phase);
            			}
             		break; 
         		case 3: 
            			if (failedtests==0){
           				savecode();
            				phase=1;
+           				babyclock.reset();
+           				managephasegui(phase);
            			} 
            			break; 
         		default: 
@@ -160,9 +166,9 @@ public class Controller {
 			}
 		}
 		
-		babyclock.reset();
-		managephasegui(phase);				
+						
 		System.out.println("you just checked!");
+		System.out.println(phase);
 
 	}
 	
