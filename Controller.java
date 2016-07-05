@@ -49,6 +49,7 @@ public class Controller {
 	                            timerlabel.setText("TIMER: "+babyclock.currenttime+"/"+babyclock.maxtime);
 	                            if(babyclock.currenttime>=babyclock.maxtime-1){
 	                            	backandcheck();
+	                            	errorfield.setText("");
 	                            }
 	                    	}
 	                    });
@@ -98,10 +99,7 @@ public class Controller {
 		etj.save(codefield.getText());
 	}
 	
-	public void backandcheck(){
-		goback();
-		check();
-	}
+	
 	
 	@FXML
 	public void check(){
@@ -168,11 +166,18 @@ public class Controller {
 
 	}
 	
+	public void  backandcheck(){
+		testcodefield.setText(new JavaToEditor(Presetdeliverer.testname).read());
+		codefield.setText(new JavaToEditor(Presetdeliverer.classname).read());
+		babyclock.reset();
+	}
+	
 	@FXML
 	public void goback(){
 		if(phase == 2){
 			codefield.setText(new JavaToEditor(Presetdeliverer.classname).read());
 			phase = 1;
+			
 			babyclock.reset();
 			managephasegui(phase);
 		}
