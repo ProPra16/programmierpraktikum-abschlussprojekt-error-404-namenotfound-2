@@ -34,6 +34,11 @@
                   <Font size="11.0" />
                </font>
             </TextField>
+            <Label text=".txt">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
          </children>
          <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -58,7 +63,7 @@
                   <Insets />
                </HBox.margin>
             </TextField>
-            <Label text=".java">
+            <Label text=".txt">
                <font>
                   <Font size="16.0" />
                </font>

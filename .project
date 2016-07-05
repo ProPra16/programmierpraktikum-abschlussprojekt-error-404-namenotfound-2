@@ -22,7 +22,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1467740875061</id>
+			<id>1467742588638</id>
 			<name></name>
 			<type>26</type>
 			<matcher>
@@ -31,7 +31,7 @@
 			</matcher>
 		</filter>
 		<filter>
-			<id>1467740875130</id>
+			<id>1467742588647</id>
 			<name></name>
 			<type>26</type>
 			<matcher>
@@ -40,4 +40,10 @@
 			</matcher>
 		</filter>
 	</filteredResources>
+	<variableList>
+		<variable>
+			<name>lokale_ressourcen</name>
+			<value>file:/C:/Users/Sartos979/Desktop/propragit/programmierpraktikum-abschlussprojekt-error-404-namenotfound-2/src/main/resources</value>
+		</variable>
+	</variableList>
 </projectDescription>

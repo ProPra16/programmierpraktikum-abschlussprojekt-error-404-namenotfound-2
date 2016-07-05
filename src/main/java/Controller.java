@@ -28,7 +28,7 @@ public class Controller {
 	public void initialize() throws IOException{
 		//
 		
-		Parent root=(Parent) FXMLLoader.load(getClass().getResource("menuGUI.fxml"));
+		Parent root=(Parent) FXMLLoader.load(getClass().getResource("fxml/menuGUI.fxml"));
 		Stage menustage=new Stage();
 		menustage.setTitle("Menu");
 		menustage.setScene(new Scene(root));
