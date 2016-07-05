@@ -1,7 +1,10 @@
-apply plugin: 'java'
-apply plugin: 'maven'
+group 'de.hhu.propra.error-404-namenotfound-2'
+version '1.0'
 
-group 'de.hhu.stups'
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "Mastermain"
 
 repositories { 
 mavenCentral() 
