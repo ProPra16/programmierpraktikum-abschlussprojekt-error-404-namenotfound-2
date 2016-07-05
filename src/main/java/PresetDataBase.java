@@ -4,7 +4,10 @@
 public class PresetDataBase {
     static boolean babysteps;
     static int babystepstime =0;
-    static boolean atdd;
+    static boolean timetracking;
     static String codeclassname;
     static String testclassname;
+	static String codepreset;
+	static String xmlpreset;
+	
 }

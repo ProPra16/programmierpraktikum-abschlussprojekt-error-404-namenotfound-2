@@ -2,11 +2,17 @@
 //goback()by Yulian, check() by Michael, timemanager()by Jonas and Julian, rest by Julian
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.shape.Arc;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.util.Collection;
 
 import vk.core.api.CompilationUnit;
@@ -19,7 +25,17 @@ import vk.core.api.TestResult;
 
 
 public class Controller {
-	public void initialize(){
+	public void initialize() throws IOException{
+		//
+		
+		Parent root=(Parent) FXMLLoader.load(getClass().getResource("menuGUI.fxml"));
+		Stage menustage=new Stage();
+		menustage.setTitle("Menu");
+		menustage.setScene(new Scene(root));
+		menustage.showAndWait();
+	//	while(menucontroller.menuend==false){
+	//	}
+		//
 		Presetdeliverer.main();
 		phase=1;
 		babyclock=new BabystepClock();
