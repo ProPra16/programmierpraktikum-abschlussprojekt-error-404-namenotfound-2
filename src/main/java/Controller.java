@@ -33,11 +33,8 @@ public class Controller {
 		menustage.setTitle("Menu");
 		menustage.setScene(new Scene(root));
 		menustage.showAndWait();
-	//	while(menucontroller.menuend==false){
-	//	}
-		//
 		Presetdeliverer.main();
-		phase=3;
+		phase=1;
 		babyclock=new BabystepClock();
 		jte=new JavaToEditor("./src/main/resources/txt/"+Presetdeliverer.classname);
 		codefield.setText(jte.read());
@@ -118,7 +115,7 @@ public class Controller {
 	
 	
 	@FXML
-	public void check(){
+	public void check() throws IOException{
 		String codecontent = codefield.getText();
 		CompilationUnit Code = new CompilationUnit(Presetdeliverer.classname, codecontent, false);
 	
@@ -153,29 +150,34 @@ public class Controller {
             		break; 
         		case 3:
 					if (failedtests==0){
-						/*
-						if(ATDDFailedTests==0){
+						
+						if(ATDDFailedTests()==0){
 						savecode();
 						phase=0;
 						babyclock.reset();
 						managephasegui(phase);
 						}
 					else{
-						 */
+						 
 						savecode();
 						phase=1;
 						babyclock.reset();
 						managephasegui(phase);
 					}
-					break; /*
+					break; }
 				case 0:
-					if(ATDDFailedTests==1)
+					if(ATDDFailedTests()==1)
 						savecode();
 						phase = 1;
+						Parent root=(Parent) FXMLLoader.load(getClass().getResource("fxml/ATDDGUI.fxml"));
+						Stage menustage=new Stage();
+						menustage.setTitle("ATDD");
+						menustage.setScene(new Scene(root));
+						menustage.showAndWait();
 						babyclock.reset();
 						managephasegui(phase);
 					break;
-						*/
+						
         		default: 
            			System.out.println("Fehler!");
            			break;
@@ -205,12 +207,12 @@ public class Controller {
 
 	}
 
-		/*
+		
 	public int ATDDFailedTests(){
 		String codecontent = codefield.getText();
 		CompilationUnit Code = new CompilationUnit(Presetdeliverer.classname, codecontent, false);
 
-		String testcontent = ATDDtestcodefield.getText();
+		String testcontent = ATDDController.ATDDtestcodefield.getText();
 		CompilationUnit Test = new CompilationUnit(Presetdeliverer.testname, testcontent, true);
 
 		JavaStringCompiler compiler = CompilerFactory.getCompiler(Code, Test);
@@ -244,7 +246,7 @@ public class Controller {
 		}
 
 	}
-	*/
+	
 	
 	public void  backandcheck(){
 		testcodefield.setText(new JavaToEditor(Presetdeliverer.testname).read());
