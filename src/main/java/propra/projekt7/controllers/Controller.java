@@ -2,7 +2,6 @@ package propra.projekt7.controllers;
 
 import java.io.IOException;
 import java.util.Collection;
-import java.util.Iterator;
 
 //goback()by Yulian, check() by Michael, timemanager()by Jonas and Julian, rest by Julian
 import javafx.application.Platform;
@@ -26,7 +25,6 @@ import vk.core.api.CompileError;
 import vk.core.api.CompilerFactory;
 import vk.core.api.CompilerResult;
 import vk.core.api.JavaStringCompiler;
-import vk.core.api.TestFailure;
 import vk.core.api.TestResult;
 
 
