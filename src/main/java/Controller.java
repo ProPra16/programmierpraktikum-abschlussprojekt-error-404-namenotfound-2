@@ -37,7 +37,11 @@ public class Controller {
 	//	}
 		//
 		Presetdeliverer.main();
-		phase=3;
+		/*
+		if(PresetDataBase.ATDD) phase=0;
+		else phase=1;
+		 */
+		phase=1;
 		babyclock=new BabystepClock();
 		jte=new JavaToEditor("./src/main/resources/txt/"+Presetdeliverer.classname);
 		codefield.setText(jte.read());
@@ -170,7 +174,7 @@ public class Controller {
 					break; /*
 				case 0:
 					if(ATDDFailedTests==1)
-						savecode();
+						saveATDD();
 						phase = 1;
 						babyclock.reset();
 						managephasegui(phase);
