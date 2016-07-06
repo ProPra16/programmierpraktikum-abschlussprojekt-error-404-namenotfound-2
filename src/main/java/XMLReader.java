@@ -5,7 +5,7 @@ import java.io.*;
  */
 public class XMLReader {
     public static void reader() {
-        File inputdata = new File("presettings.txt");
+        File inputdata = new File("./src/main/resources/txt/"+PresetDataBase.xmlpreset+".txt");
         String currentreadingline =" ";
         boolean filenotendet=true;
         try {

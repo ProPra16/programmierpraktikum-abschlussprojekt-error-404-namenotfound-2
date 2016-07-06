@@ -12,7 +12,7 @@ public class TxtToJava {
 	    
 
 	    public static void transform() {
-	        File source = new File("presetcode.txt");
+	        File source = new File("./src/main/resources/txt/"+PresetDataBase.codepreset+".txt");
 	        Path pfad = Paths.get(source.getAbsolutePath());
 
 	        ArrayList<String> buffer = new ArrayList<String>();
