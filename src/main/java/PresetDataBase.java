@@ -9,6 +9,6 @@ public class PresetDataBase {
     static String testclassname;
 	static String codepreset;
 	static String xmlpreset;
-	
+	static int ATDDFailedTests;
 	
 }
