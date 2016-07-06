@@ -24,7 +24,7 @@ public class XMLReader {
                             Presetdeliverer.testname = Presetsetter.settestname(currentreadingline);
                         } else if (linestart.equals("<babysteps ")) {
                             PresetDataBase.babysteps = Presetsetter.setbabysteps(currentreadingline);
-                        } else if (linestart.equals("<timetracki")) {
+                        } else if (linestart.equals("<atdd value")) {
                             PresetDataBase.atdd = Presetsetter.setatdd(currentreadingline);
                         }
                     }
