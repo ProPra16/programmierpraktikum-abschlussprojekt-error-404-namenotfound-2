@@ -37,7 +37,7 @@ public class Controller {
 	//	}
 		//
 		Presetdeliverer.main();
-		phase=1;
+		phase=3;
 		babyclock=new BabystepClock();
 		jte=new JavaToEditor("./src/main/resources/txt/"+Presetdeliverer.classname);
 		codefield.setText(jte.read());
@@ -151,14 +151,31 @@ public class Controller {
            				managephasegui(phase);
            			}
             		break; 
-        		case 3: 
-           			if (failedtests==0){
-          				savecode();
-           				phase=1;
-           				babyclock.reset();
-           				managephasegui(phase);
-           			} 
-           			break; 
+        		case 3:
+					if (failedtests==0){
+						/*
+						if(ATDDFailedTests==0){
+						savecode();
+						phase=0;
+						babyclock.reset();
+						managephasegui(phase);
+						}
+					else{
+						 */
+						savecode();
+						phase=1;
+						babyclock.reset();
+						managephasegui(phase);
+					}
+					break; /*
+				case 0:
+					if(ATDDFailedTests==1)
+						savecode();
+						phase = 1;
+						babyclock.reset();
+						managephasegui(phase);
+					break;
+						*/
         		default: 
            			System.out.println("Fehler!");
            			break;
@@ -187,6 +204,47 @@ public class Controller {
 		System.out.println(phase);
 
 	}
+
+		/*
+	public int ATDDFailedTests(){
+		String codecontent = codefield.getText();
+		CompilationUnit Code = new CompilationUnit(Presetdeliverer.classname, codecontent, false);
+
+		String testcontent = ATDDtestcodefield.getText();
+		CompilationUnit Test = new CompilationUnit(Presetdeliverer.testname, testcontent, true);
+
+		JavaStringCompiler compiler = CompilerFactory.getCompiler(Code, Test);
+
+		compiler.compileAndRunTests();
+		CompilerResult compileresults= compiler.getCompilerResult();
+		if (compileresults.hasCompileErrors()==false) {
+			TestResult testresults = compiler.getTestResult();
+
+			int failedtests = testresults.getNumberOfFailedTests();
+
+			return failedtests;
+		}
+		else {
+			CompilerResult output = compiler.getCompilerResult();
+			Collection<CompileError> codeerrors = output.getCompilerErrorsForCompilationUnit(Code);
+			if (codeerrors.size() != 0) {
+				String Fehlermeldung = codeerrors.toString();
+				errorfield.setText(errorfield.getText() + "\n" + Fehlermeldung);
+				errorfield.setText(errorfield.getText() + "\n" + codeerrors.size());
+			} else {
+				Collection<CompileError> testerrors = output.getCompilerErrorsForCompilationUnit(Test);
+				if (testerrors.size() != 0) {
+					String Fehlermeldung = testerrors.toString();
+					errorfield.setText(errorfield.getText() + "\n" + Fehlermeldung);
+					errorfield.setText(errorfield.getText() + "\n" + (codeerrors.size()));
+
+				}
+			}
+			return -1;
+		}
+
+	}
+	*/
 	
 	public void  backandcheck(){
 		testcodefield.setText(new JavaToEditor(Presetdeliverer.testname).read());
