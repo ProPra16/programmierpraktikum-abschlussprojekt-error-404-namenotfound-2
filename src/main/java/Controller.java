@@ -34,6 +34,10 @@ public class Controller {
 		menustage.setScene(new Scene(root));
 		menustage.showAndWait();
 		Presetdeliverer.main();
+
+		if(PresetDataBase.atdd) phase=0;
+		else phase=1;
+
 		phase=1;
 		babyclock=new BabystepClock();
 		jte=new JavaToEditor("./src/main/resources/txt/"+Presetdeliverer.classname);
@@ -167,7 +171,8 @@ public class Controller {
 					break; }
 				case 0:
 					if(ATDDFailedTests()==1)
-						savecode();
+					//	saveATDD();
+
 						phase = 1;
 						Parent root=(Parent) FXMLLoader.load(getClass().getResource("fxml/ATDDGUI.fxml"));
 						Stage menustage=new Stage();
