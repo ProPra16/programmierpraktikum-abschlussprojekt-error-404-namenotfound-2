@@ -64,7 +64,7 @@ public class Controller {
 	                    Platform.runLater(new Runnable(){
 	                    	@Override public void run(){
 	                            timerlabel.setText("TIMER: "+babyclock.currenttime+"/"+babyclock.maxtime);
-	                            if(babyclock.currenttime>=babyclock.maxtime-1){
+	                            if(babyclock.currenttime>=babyclock.maxtime-1&&PresetDataBase.babysteps){
 	                            	backandcheck();
 	                            	errorfield.setText("");
 	                            }
