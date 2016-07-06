@@ -15,6 +15,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.shape.Arc;
 import javafx.stage.Stage;
+import propra.projekt7.babysteps.BabystepClock;
 import propra.projekt7.converters.EditorToJava;
 import propra.projekt7.converters.JavaToEditor;
 import propra.projekt7.presets.PresetDataBase;
