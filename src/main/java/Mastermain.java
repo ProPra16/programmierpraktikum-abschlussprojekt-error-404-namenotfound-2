@@ -1,4 +1,3 @@
-package propra.projekt7.controllers;
 
 
 import javafx.application.Application;

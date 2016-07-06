@@ -1,7 +1,3 @@
-package propra.projekt7.controllers;
-
-import java.io.IOException;
-import java.util.Collection;
 
 //goback()by Yulian, check() by Michael, timemanager()by Jonas and Julian, rest by Julian
 import javafx.application.Platform;
@@ -15,10 +11,10 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.shape.Arc;
 import javafx.stage.Stage;
-import propra.projekt7.converters.EditorToJava;
-import propra.projekt7.converters.JavaToEditor;
-import propra.projekt7.presets.PresetDataBase;
-import propra.projekt7.presets.Presetdeliverer;
+
+import java.io.IOException;
+import java.util.Collection;
+
 import vk.core.api.CompilationUnit;
 import vk.core.api.CompileError;
 import vk.core.api.CompilerFactory;

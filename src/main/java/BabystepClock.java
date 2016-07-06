@@ -1,6 +1,4 @@
-package propra.projekt7.babysteps;
 import javafx.scene.control.Label;
-import propra.projekt7.presets.PresetDataBase;
 
 /**
  * Created by jonas on 25.06.2016.
@@ -16,9 +14,9 @@ import propra.projekt7.presets.PresetDataBase;
  * - Das BabystepClock Objekt besitzt ein Label welches die Aktuelle Zeit immer aktuallisiert besitzt.
  */
 public class BabystepClock {
-    public int maxtime;
-    public volatile int currenttime;
-    public volatile boolean running=true;
+    int maxtime;
+    volatile int currenttime;
+    volatile boolean running=true;
     volatile Label timelabel=new Label();
     Thread time;
 

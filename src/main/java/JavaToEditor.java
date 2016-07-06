@@ -1,4 +1,3 @@
-package propra.projekt7.converters;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;

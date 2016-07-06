@@ -1,4 +1,3 @@
-package propra.projekt7.presets;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -9,9 +8,9 @@ import java.nio.file.Paths;
  * Created by jonas on 21.06.2016.
  */
 public class Presetdeliverer {
-        public static String classname;
+        static String classname;
         static String classcomment;
-        public static String testname;
+        static String testname;
 
         public static void main (){
             String vorlagetest ="import static org.junit.Assert.*;\n"+

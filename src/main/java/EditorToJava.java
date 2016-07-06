@@ -1,4 +1,3 @@
-package propra.projekt7.converters;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

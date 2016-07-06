@@ -1,4 +1,3 @@
-package propra.projekt7.presets;
 //by Julian and Michael, code inspired by EditorToJava and JavaToEditor
 import java.io.File;
 import java.io.FileWriter;

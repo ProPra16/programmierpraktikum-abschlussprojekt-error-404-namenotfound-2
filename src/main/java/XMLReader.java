@@ -1,4 +1,3 @@
-package propra.projekt7.presets;
 import java.io.*;
 
 /**
