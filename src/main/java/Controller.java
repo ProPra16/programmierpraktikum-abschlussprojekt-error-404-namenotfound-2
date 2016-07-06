@@ -39,9 +39,9 @@ public class Controller {
 		Presetdeliverer.main();
 		phase=1;
 		babyclock=new BabystepClock();
-		jte=new JavaToEditor(Presetdeliverer.classname);
+		jte=new JavaToEditor("./src/main/resources/txt/"+Presetdeliverer.classname);
 		codefield.setText(jte.read());
-		jte=new JavaToEditor(Presetdeliverer.testname);
+		jte=new JavaToEditor("./src/main/resources/txt/"+Presetdeliverer.testname);
 		testcodefield.setText(jte.read());
 		managephasegui(phase);
 		timermanager();

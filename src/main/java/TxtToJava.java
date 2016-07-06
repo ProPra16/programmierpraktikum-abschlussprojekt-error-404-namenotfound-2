@@ -29,7 +29,7 @@ public class TxtToJava {
 	        save(code);
 	    }
 	    public static void save(String a){
-	        File tmp = new File(PresetDataBase.codeclassname+".java");
+	        File tmp = new File("./src/main/resources/txt/"+PresetDataBase.codeclassname+".java");
 	        Path p = Paths.get(tmp.getAbsolutePath());
 
 	        try {

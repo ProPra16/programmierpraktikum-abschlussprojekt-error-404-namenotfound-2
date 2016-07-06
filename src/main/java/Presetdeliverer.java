@@ -25,12 +25,12 @@ public class Presetdeliverer {
             XMLReader.reader();
             TxtToJava.transform();
          //   File presettingcode = new File(PresetDataBase.codeclassname+".java");
-            File presettingtest = new File (PresetDataBase.testclassname+".java");          
+            File presettingtest = new File ("./src/main/resources/txt/"+PresetDataBase.testclassname+".java");
             vorlagetest = fillvorlagetest(vorlagetest);
             writetestfile(presettingtest,vorlagetest);
             //Wenn ATDD aktiv, dann Erstelle eine weitere Testdatei, speziell für ATDD.
             if (PresetDataBase.atdd){
-                File presetatddtest = new File ("ATDD"+PresetDataBase.testclassname+".java");
+                File presetatddtest = new File ("./src/main/resources/txt/"+"ATDD"+PresetDataBase.testclassname+".java");
                 writetestfile(presetatddtest,vorlagetest);
             }
         }
