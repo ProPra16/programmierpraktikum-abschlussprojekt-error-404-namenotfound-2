@@ -5,14 +5,14 @@
 			<attribute name="FROM_GRADLE_MODEL" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src/main/resources/fxml"/>
-	<classpathentry excluding="java/|resources/" kind="src" path="src/main"/>
-	<classpathentry kind="src" path="src/main/resources/txt"/>
 	<classpathentry excluding="fxml/|txt/" kind="src" path="src/main/resources">
 		<attributes>
 			<attribute name="FROM_GRADLE_MODEL" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="src/main/resources/fxml"/>
+	<classpathentry excluding="java/|resources/" kind="src" path="src/main"/>
+	<classpathentry kind="src" path="src/main/resources/txt"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
 	<classpathentry kind="output" path="bin"/>

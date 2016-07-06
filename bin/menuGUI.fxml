@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menucontroller">
+   <children>
+      <StackPane VBox.vgrow="ALWAYS">
+         <children>
+            <Label text="Menu">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <Separator prefWidth="200.0" VBox.vgrow="ALWAYS" />
+      <HBox VBox.vgrow="ALWAYS">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Type in your XML Name:" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <TextField HBox.hgrow="ALWAYS" fx:id="xmlname">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </TextField>
+            <Label text=".txt">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </HBox>
+      <Separator prefWidth="200.0" VBox.vgrow="ALWAYS" />
+      <HBox VBox.vgrow="ALWAYS">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="Type in your Code-preset Name:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <padding>
+                  <Insets right="5.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="codename" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="11.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </TextField>
+            <Label text=".txt">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </HBox>
+      <Separator prefWidth="200.0" VBox.vgrow="ALWAYS" />
+      <StackPane>
+         <children>
+            <Button fx:id="continuebutton" mnemonicParsing="false" onAction="#goon" prefHeight="53.0" prefWidth="79.0" text="Continue" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </StackPane>
+   </children>
+</VBox>
