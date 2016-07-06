@@ -134,7 +134,7 @@ public class Controller {
 			TestResult testresults = compiler.getTestResult();
 		
 			int failedtests = testresults.getNumberOfFailedTests();
-			ATDDFailedTests();
+		
 			switch(phase){ 
         		case 1: 
            			if (failedtests==1){
@@ -155,7 +155,7 @@ public class Controller {
         		case 3:
 					if (failedtests==0){
 						
-						if(PresetDataBase.ATDDFailedTests==0){
+						if(ATDDFailedTests()==0){
 						savecode();
 						phase=0;
 						babyclock.reset();
@@ -170,8 +170,9 @@ public class Controller {
 					}
 					break; }
 				case 0:
-					if(PresetDataBase.ATDDFailedTests==1)
-					//	saveATDD();
+
+					if(ATDDFailedTests()==1)
+						//saveATDD();
 
 						phase = 1;
 						Parent root=(Parent) FXMLLoader.load(getClass().getResource("fxml/ATDDGUI.fxml"));
@@ -213,7 +214,7 @@ public class Controller {
 	}
 
 		
-	public void ATDDFailedTests(){
+	public int ATDDFailedTests(){
 		String codecontent = codefield.getText();
 		CompilationUnit Code = new CompilationUnit(Presetdeliverer.classname, codecontent, false);
 
@@ -229,7 +230,7 @@ public class Controller {
 
 			int failedtests = testresults.getNumberOfFailedTests();
 
-			PresetDataBase.ATDDFailedTests=failedtests;
+			return failedtests;
 		}
 		else {
 			CompilerResult output = compiler.getCompilerResult();
@@ -247,7 +248,7 @@ public class Controller {
 
 				}
 			}
-			
+			return -1;
 		}
 
 	}
