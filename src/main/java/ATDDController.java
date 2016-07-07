@@ -4,6 +4,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import vk.core.api.*;
 
@@ -11,18 +12,22 @@ import java.util.Collection;
 import java.util.Iterator;
 
 public class ATDDController {
-@FXML
-public TextArea ATDDtestcodefield,ErrorField;
+	@FXML
+	public TextArea ATDDtestcodefield,terminalfield;
 
     @FXML
     public Button atddcheckbutton;
 
-public static String codefieldText;
+    public static String codefieldText;
 
+    
+    
     public void initialize(){
         ATDDtestcodefield.setText(new JavaToEditor("./src/main/resources/txt/"+"ATDD"+Presetdeliverer.testname).read());
+        terminalfield.setText("");
     }
 
+    
     public static void giveCodeText(String codefield){
         codefieldText = codefield;
     }
@@ -53,17 +58,18 @@ public void check(){
             TestResult testresults = compiler.getTestResult();
 
             int failedtests = testresults.getNumberOfFailedTests();
-
-            ErrorField.setText(ErrorField.getText()+"\n"+"Anzahl Fehlgeschlagener Tests: "+ failedtests);
-            ErrorField.appendText("");
+            System.out.println(failedtests);
+            System.out.println(terminalfield.getText());
+            terminalfield.setText(terminalfield.getText()+"\n"+"Anzahl Fehlgeschlagener Tests: "+ failedtests);
+            terminalfield.appendText("");
             Collection<TestFailure> Fails = testresults.getTestFailures();
             TestFailure Failure;
             for (Iterator<TestFailure> iterator1 = Fails.iterator(); iterator1.hasNext(); ){
                 Failure = iterator1.next();
                 String Message = Failure.getMessage();
                 String Methodname = Failure.getMethodName();
-                ErrorField.setText(ErrorField.getText()+"\n"+"Testmethode: "+Methodname+"\n"+Message+"\n");
-                ErrorField.appendText("");
+                terminalfield.setText(terminalfield.getText()+"\n"+"Testmethode: "+Methodname+"\n"+Message+"\n");
+                terminalfield.appendText("");
             }
 
             return failedtests;
@@ -73,16 +79,16 @@ public void check(){
             Collection<CompileError> codeerrors = output.getCompilerErrorsForCompilationUnit(Code);
             if (codeerrors.size() != 0) {
                 String Fehlermeldung = codeerrors.toString();
-                ErrorField.setText(ErrorField.getText() + "\n" + Fehlermeldung);
-                ErrorField.setText(ErrorField.getText() + "\n" + codeerrors.size());
-                ErrorField.appendText("");
+                terminalfield.setText(terminalfield.getText() + "\n" + Fehlermeldung);
+                terminalfield.setText(terminalfield.getText() + "\n" + codeerrors.size());
+                terminalfield.appendText("");
             } else {
                 Collection<CompileError> testerrors = output.getCompilerErrorsForCompilationUnit(Test);
                 if (testerrors.size() != 0) {
                     String Fehlermeldung = testerrors.toString();
-                    ErrorField.setText(ErrorField.getText() + "\n" + Fehlermeldung);
-                    ErrorField.setText(ErrorField.getText() + "\n" + (codeerrors.size()));
-                    ErrorField.appendText("");
+                    terminalfield.setText(terminalfield.getText() + "\n" + Fehlermeldung);
+                    terminalfield.setText(terminalfield.getText() + "\n" + (codeerrors.size()));
+                    terminalfield.appendText("");
 
                 }
             }

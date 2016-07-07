@@ -1,6 +1,6 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
-public class RomanNumberConverterTest{
+public class ATDDRomanNumberConverterTest{
    @Test
    public void testSomething(){
    }

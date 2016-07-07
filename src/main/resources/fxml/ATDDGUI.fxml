@@ -29,7 +29,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextArea fx:id="ErrorField" editable="true" minHeight="200.0" VBox.vgrow="ALWAYS">
+            <TextArea fx:id="terminalfield" editable="true" minHeight="200.0" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>

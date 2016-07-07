@@ -10,5 +10,7 @@ public class PresetDataBase {
 	static String codepreset;
 	static String xmlpreset;
 	static int ATDDFailedTests;
+	static String codefilepath;
+	static String presetpath;
 	
 }
