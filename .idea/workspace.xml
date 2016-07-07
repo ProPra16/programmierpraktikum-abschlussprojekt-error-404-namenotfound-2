@@ -3,29 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="e1251bf1-b6b6-47f6-ad18-3cb7ee2be8f2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/ATDDController.class" afterPath="$PROJECT_DIR$/build/classes/main/ATDDController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/Controller$1$1.class" afterPath="$PROJECT_DIR$/build/classes/main/Controller$1$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/Controller$1.class" afterPath="$PROJECT_DIR$/build/classes/main/Controller$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/Controller.class" afterPath="$PROJECT_DIR$/build/classes/main/Controller.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/Presetdeliverer.class" afterPath="$PROJECT_DIR$/build/classes/main/Presetdeliverer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/Presetsetter.class" afterPath="$PROJECT_DIR$/build/classes/main/Presetsetter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RomanNumberConverter.java" afterPath="$PROJECT_DIR$/RomanNumberConverter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RomanNumberConverterTest.java" afterPath="$PROJECT_DIR$/RomanNumberConverterTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/fxml/ATDDGUI.fxml" afterPath="$PROJECT_DIR$/build/resources/main/fxml/ATDDGUI.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/txt/ATDDRomanNumberConverterTest.java" afterPath="$PROJECT_DIR$/build/resources/main/txt/ATDDRomanNumberConverterTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/txt/RomanNumberConverter.java" afterPath="$PROJECT_DIR$/build/resources/main/txt/RomanNumberConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/txt/RomanNumberConverterTest.java" afterPath="$PROJECT_DIR$/build/resources/main/txt/RomanNumberConverterTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ATDDController.java" afterPath="$PROJECT_DIR$/src/main/java/ATDDController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Controller.java" afterPath="$PROJECT_DIR$/src/main/java/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Presetdeliverer.java" afterPath="$PROJECT_DIR$/src/main/java/Presetdeliverer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/fxml/ATDDGUI.fxml" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ATDDGUI.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/txt/ATDDRomanNumberConverterTest.java" afterPath="$PROJECT_DIR$/src/main/resources/txt/ATDDRomanNumberConverterTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/txt/RomanNumberConverter.java" afterPath="$PROJECT_DIR$/src/main/resources/txt/RomanNumberConverter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/txt/RomanNumberConverterTest.java" afterPath="$PROJECT_DIR$/src/main/resources/txt/RomanNumberConverterTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/txt/null.java" afterPath="$PROJECT_DIR$/src/main/resources/txt/null.java" />
     </list>
     <ignored path="programmierpraktikum-abschlussprojekt-error-404-namenotfound-2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,7 +53,7 @@
       <file leaf-file-name="ATDDGUI.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/ATDDGUI.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
+            <state relative-caret-position="379">
               <caret line="36" column="42" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="42" />
               <folding />
             </state>
@@ -79,8 +66,8 @@
       <file leaf-file-name="ATDDController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ATDDController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="53">
-              <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+            <state relative-caret-position="934">
+              <caret line="69" column="14" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,8 +90,8 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="796">
-              <caret line="180" column="16" selection-start-line="180" selection-start-column="16" selection-end-line="180" selection-end-column="16" />
+            <state relative-caret-position="208">
+              <caret line="229" column="14" selection-start-line="229" selection-start-column="14" selection-end-line="229" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -455,6 +442,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -563,9 +552,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="RunManager" selected="Application.Mastermain">
@@ -873,7 +860,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21766561" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21766561" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -912,6 +899,45 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/ATDDGUI.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="42" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ATDDController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/menucontroller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="22" selection-start-line="16" selection-start-column="8" selection-end-line="17" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/ATDDGUI.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -976,14 +1002,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PresetDataBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1062,7 +1080,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/ATDDGUI.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
+        <state relative-caret-position="379">
           <caret line="36" column="42" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="42" />
           <folding />
         </state>
@@ -1071,10 +1089,26 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PresetDataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/txt/presettings.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ATDDController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        <state relative-caret-position="934">
+          <caret line="69" column="14" selection-start-line="69" selection-start-column="14" selection-end-line="69" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1083,8 +1117,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="796">
-          <caret line="180" column="16" selection-start-line="180" selection-start-column="16" selection-end-line="180" selection-end-column="16" />
+        <state relative-caret-position="208">
+          <caret line="229" column="14" selection-start-line="229" selection-start-column="14" selection-end-line="229" selection-end-column="14" />
           <folding />
         </state>
       </provider>

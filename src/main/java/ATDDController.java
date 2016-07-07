@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import vk.core.api.*;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 public class ATDDController {
 @FXML
@@ -53,12 +54,20 @@ public void check(){
 
             int failedtests = testresults.getNumberOfFailedTests();
 
-            System.out.println("hier");
+            ErrorField.setText(ErrorField.getText()+"\n"+"Anzahl Fehlgeschlagener Tests: "+ failedtests);
+
+            Collection<TestFailure> Fails = testresults.getTestFailures();
+            TestFailure Failure;
+            for (Iterator<TestFailure> iterator1 = Fails.iterator(); iterator1.hasNext(); ){
+                Failure = iterator1.next();
+                String Message = Failure.getMessage();
+                String Methodname = Failure.getMethodName();
+                ErrorField.setText(ErrorField.getText()+"\n"+"Testmethode: "+Methodname+"\n"+Message+"\n");
+            }
 
             return failedtests;
         }
         else {
-            System.out.println("hier2");
             CompilerResult output = compiler.getCompilerResult();
             Collection<CompileError> codeerrors = output.getCompilerErrorsForCompilationUnit(Code);
             if (codeerrors.size() != 0) {

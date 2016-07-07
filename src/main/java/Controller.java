@@ -14,14 +14,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Iterator;
 
-import vk.core.api.CompilationUnit;
-import vk.core.api.CompileError;
-import vk.core.api.CompilerFactory;
-import vk.core.api.CompilerResult;
-import vk.core.api.JavaStringCompiler;
-import vk.core.api.TestResult;
-
+import vk.core.api.*;
 
 
 public class Controller {
@@ -64,7 +59,7 @@ public class Controller {
 	                    Platform.runLater(new Runnable(){
 	                    	@Override public void run(){
 	                            timerlabel.setText("TIMER: "+babyclock.currenttime+"/"+babyclock.maxtime);
-	                            if(babyclock.currenttime>=babyclock.maxtime-1){
+	                            if(babyclock.currenttime>=babyclock.maxtime-1 && PresetDataBase.babysteps){
 	                            	backandcheck();
 	                            	errorfield.setText("");
 	                            }
@@ -134,6 +129,17 @@ public class Controller {
 			TestResult testresults = compiler.getTestResult();
 		
 			int failedtests = testresults.getNumberOfFailedTests();
+
+			errorfield.setText(errorfield.getText()+"\n"+"Anzahl Fehlgeschlagener Tests: "+ failedtests);
+
+			Collection<TestFailure> Fails = testresults.getTestFailures();
+			TestFailure Failure;
+			for (Iterator<TestFailure> iterator1 = Fails.iterator(); iterator1.hasNext(); ){
+				Failure = iterator1.next();
+				String Message = Failure.getMessage();
+				String Methodname = Failure.getMethodName();
+				errorfield.setText(errorfield.getText()+"\n"+"Testmethode: "+Methodname+"\n"+Message+"\n");
+			}
 		
 			switch(phase){ 
         		case 1: 
@@ -142,6 +148,7 @@ public class Controller {
            				phase=2;
            				babyclock.reset();
            				managephasegui(phase);
+						errorfield.setText("");
            			}
             		break; 
         		case 2: 
@@ -150,11 +157,12 @@ public class Controller {
            				phase=3;
            				babyclock.reset();
            				managephasegui(phase);
+						errorfield.setText("");
            			}
             		break; 
         		case 3:
 					if (failedtests==0) {
-						if (ATDDFailedTests(codefield.getText(), new JavaToEditor("./src/main/resources/txt/" + "ATDD" + Presetdeliverer.testname).read()) == 0) {
+						if (PresetDataBase.atdd && ATDDFailedTests(codefield.getText(), new JavaToEditor("./src/main/resources/txt/" + "ATDD" + Presetdeliverer.testname).read()) == 0) {
 							savecode();
 							babyclock.reset();
 							managephasegui(phase);
@@ -174,12 +182,12 @@ public class Controller {
 							phase = 1;
 							babyclock.reset();
 							managephasegui(phase);
+							errorfield.setText("");
 						}
 					}
 					break;
 						
         			default:
-           			System.out.println("Fehler!");
            			break;
         	} 
 		
@@ -200,10 +208,6 @@ public class Controller {
 				}
 			}
 		}
-		
-						
-		System.out.println("you just checked!");
-		System.out.println(phase);
 
 	}
 
@@ -221,12 +225,9 @@ public class Controller {
 
 			int failedtests = testresults.getNumberOfFailedTests();
 
-			System.out.println("hier");
-
 			return failedtests;
 		}
 		else {
-			System.out.println("hier2");
 			CompilerResult output = compiler.getCompilerResult();
 			Collection<CompileError> codeerrors = output.getCompilerErrorsForCompilationUnit(Code);
 			if (codeerrors.size() != 0) {
