@@ -75,12 +75,14 @@ public void check(){
                 String Fehlermeldung = codeerrors.toString();
                 ErrorField.setText(ErrorField.getText() + "\n" + Fehlermeldung);
                 ErrorField.setText(ErrorField.getText() + "\n" + codeerrors.size());
+                ErrorField.appendText("");
             } else {
                 Collection<CompileError> testerrors = output.getCompilerErrorsForCompilationUnit(Test);
                 if (testerrors.size() != 0) {
                     String Fehlermeldung = testerrors.toString();
                     ErrorField.setText(ErrorField.getText() + "\n" + Fehlermeldung);
                     ErrorField.setText(ErrorField.getText() + "\n" + (codeerrors.size()));
+                    ErrorField.appendText("");
 
                 }
             }

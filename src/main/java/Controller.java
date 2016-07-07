@@ -199,13 +199,15 @@ public class Controller {
 			if (codeerrors.size()!=0){
 				String Fehlermeldung = codeerrors.toString();
 				errorfield.setText(errorfield.getText()+"\n"+Fehlermeldung); 
-				errorfield.setText(errorfield.getText()+"\n"+codeerrors.size());  
+				errorfield.setText(errorfield.getText()+"\n"+codeerrors.size()); 
+				errorfield.appendText("");
 			}else{
 				Collection<CompileError> testerrors = output.getCompilerErrorsForCompilationUnit(Test);
 				if (testerrors.size()!=0){
 					String Fehlermeldung = testerrors.toString();
 					errorfield.setText(errorfield.getText()+"\n"+Fehlermeldung); 
-					errorfield.setText(errorfield.getText()+"\n"+(codeerrors.size()));  
+					errorfield.setText(errorfield.getText()+"\n"+(codeerrors.size())); 
+					errorfield.appendText("");
 
 				}
 			}
@@ -236,12 +238,14 @@ public class Controller {
 				String Fehlermeldung = codeerrors.toString();
 				errorfield.setText(errorfield.getText()+"\n"+Fehlermeldung);
 				errorfield.setText(errorfield.getText()+"\n"+codeerrors.size());
+				errorfield.appendText("");
 			}else{
 				Collection<CompileError> testerrors = output.getCompilerErrorsForCompilationUnit(Test);
 				if (testerrors.size()!=0){
 					String Fehlermeldung = testerrors.toString();
 					errorfield.setText(errorfield.getText()+"\n"+Fehlermeldung);
 					errorfield.setText(errorfield.getText()+"\n"+(codeerrors.size()));
+					errorfield.appendText("");
 
 				}
 			}
