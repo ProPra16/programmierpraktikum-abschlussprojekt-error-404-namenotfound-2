@@ -55,7 +55,7 @@ public void check(){
             int failedtests = testresults.getNumberOfFailedTests();
 
             ErrorField.setText(ErrorField.getText()+"\n"+"Anzahl Fehlgeschlagener Tests: "+ failedtests);
-
+            ErrorField.appendText("");
             Collection<TestFailure> Fails = testresults.getTestFailures();
             TestFailure Failure;
             for (Iterator<TestFailure> iterator1 = Fails.iterator(); iterator1.hasNext(); ){
@@ -63,6 +63,7 @@ public void check(){
                 String Message = Failure.getMessage();
                 String Methodname = Failure.getMethodName();
                 ErrorField.setText(ErrorField.getText()+"\n"+"Testmethode: "+Methodname+"\n"+Message+"\n");
+                ErrorField.appendText("");
             }
 
             return failedtests;

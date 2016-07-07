@@ -131,6 +131,7 @@ public class Controller {
 			int failedtests = testresults.getNumberOfFailedTests();
 
 			errorfield.setText(errorfield.getText()+"\n"+"Anzahl Fehlgeschlagener Tests: "+ failedtests);
+			errorfield.appendText("");
 
 			Collection<TestFailure> Fails = testresults.getTestFailures();
 			TestFailure Failure;
@@ -139,6 +140,7 @@ public class Controller {
 				String Message = Failure.getMessage();
 				String Methodname = Failure.getMethodName();
 				errorfield.setText(errorfield.getText()+"\n"+"Testmethode: "+Methodname+"\n"+Message+"\n");
+				errorfield.appendText("");
 			}
 		
 			switch(phase){ 
