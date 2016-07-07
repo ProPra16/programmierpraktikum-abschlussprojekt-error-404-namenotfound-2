@@ -1,7 +1,8 @@
-import static org.junit.Assert.*;
-import org.junit.Test;
-public class null{
-   @Test
-   public void testSomething(){
-   }
+public class code{
+	public static void main (String [] args){
+	}
+	public static int returnone (){
+		return 999;
+	}
+	
 }

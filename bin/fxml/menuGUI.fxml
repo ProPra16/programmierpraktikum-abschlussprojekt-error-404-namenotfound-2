@@ -35,7 +35,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField />
+            <TextField fx:id="preclassname" />
          </children>
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -48,7 +48,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField />
+            <TextField fx:id="pretestname" />
          </children>
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -56,26 +56,26 @@
       </HBox>
       <HBox>
          <children>
-            <ToggleButton mnemonicParsing="false" text="Babysteps">
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </VBox.margin>
+            <CheckBox fx:id="prebaby" mnemonicParsing="false" text="Babysteps">
                <HBox.margin>
-                  <Insets right="5.0" />
+                  <Insets />
                </HBox.margin>
-            </ToggleButton>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </CheckBox>
             <Label text="-&gt;">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField maxWidth="30.0" />
+            <TextField fx:id="premins" maxWidth="30.0" />
             <Label text="Minutes">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField maxWidth="30.0" />
+            <TextField fx:id="presecs" maxWidth="30.0" />
             <Label text="Seconds">
                <font>
                   <Font size="16.0" />
@@ -86,21 +86,23 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </VBox.margin>
       </HBox>
-      <ToggleButton mnemonicParsing="false" text="ATDD">
+      <HBox VBox.vgrow="ALWAYS">
          <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </VBox.margin>
-      </ToggleButton>
+         <children>
+            <CheckBox fx:id="preatdd" mnemonicParsing="false" text="ATDD">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </CheckBox>
+         </children>
+      </HBox>
       <StackPane>
          <children>
-            <Button fx:id="presettingcreator" mnemonicParsing="false" text="Create preset" />
+            <Button fx:id="presettingcreator" mnemonicParsing="false" onAction="#createpreset" text="Create preset" />
          </children>
       </StackPane>
-      <HBox VBox.vgrow="ALWAYS">
-         <VBox.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </VBox.margin>
-      </HBox>
       <Separator prefWidth="200.0" VBox.vgrow="ALWAYS" />
       <StackPane>
          <children>
