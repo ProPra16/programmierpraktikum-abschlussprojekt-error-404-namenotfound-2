@@ -197,18 +197,28 @@ public class Controller {
 			CompilerResult output = compiler.getCompilerResult();
 			Collection<CompileError> codeerrors = output.getCompilerErrorsForCompilationUnit(Code);
 			if (codeerrors.size()!=0){
-				String Fehlermeldung = codeerrors.toString();
-				errorfield.setText(errorfield.getText()+"\n"+Fehlermeldung); 
-				errorfield.setText(errorfield.getText()+"\n"+codeerrors.size()); 
-				errorfield.appendText("");
+				CompileError compileerrors;
+				for (Iterator<CompileError> iterator2 = codeerrors.iterator(); iterator2.hasNext(); ){
+					compileerrors = iterator2.next();
+					String Message = compileerrors.getMessage();
+					String Wrongcode = compileerrors.getCodeLineContainingTheError();
+					long errorline = compileerrors.getLineNumber();
+					errorfield.setText(errorfield.getText()+"\n"+"Fehler in Zeile "+errorline+"\n"+Wrongcode+"\n"+Message+"\n");
+					errorfield.appendText("");
+				}
 			}else{
 				Collection<CompileError> testerrors = output.getCompilerErrorsForCompilationUnit(Test);
 				if (testerrors.size()!=0){
-					String Fehlermeldung = testerrors.toString();
-					errorfield.setText(errorfield.getText()+"\n"+Fehlermeldung); 
-					errorfield.setText(errorfield.getText()+"\n"+(codeerrors.size())); 
-					errorfield.appendText("");
-
+					
+					CompileError compileerrors;
+					for (Iterator<CompileError> iterator3 = testerrors.iterator(); iterator3.hasNext(); ){
+						compileerrors = iterator3.next();
+						String Message = compileerrors.getMessage();
+						String Wrongcode = compileerrors.getCodeLineContainingTheError();
+						long errorline = compileerrors.getLineNumber();
+						errorfield.setText(errorfield.getText()+"\n"+"Fehler in Zeile "+errorline+"\n"+Wrongcode+"\n"+Message+"\n");
+						errorfield.appendText("");
+					}
 				}
 			}
 		}
