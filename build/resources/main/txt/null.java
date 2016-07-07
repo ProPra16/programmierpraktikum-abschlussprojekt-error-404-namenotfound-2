@@ -1,8 +1,7 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
-public class ATDDRomanNumberConverterTest{
+public class null{
    @Test
    public void testSomething(){
-	assertEquals(1,0);
    }
 }

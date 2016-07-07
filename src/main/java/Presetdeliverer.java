@@ -20,6 +20,13 @@ public class Presetdeliverer {
                                 "   public void testSomething(){\n" +
                                 "   }\n"+
                                 "}";
+            String ATDDvorlage ="import static org.junit.Assert.*;\n"+
+                                "import org.junit.Test;\n"+
+                                "public class ATDD%{\n"+
+                                "   @Test\n" +
+                                "   public void testSomething(){\n" +
+                                "   }\n"+
+                                "}";
             //classname,classcomment,testname,babysteps und timetracker Einstellungen
             //Werden eingetragen bzw. eingelesen.
             XMLReader.reader();
@@ -30,8 +37,9 @@ public class Presetdeliverer {
             writetestfile(presettingtest,vorlagetest);
             //Wenn ATDD aktiv, dann Erstelle eine weitere Testdatei, speziell für ATDD.
             if (PresetDataBase.atdd){
+                ATDDvorlage = fillvorlagetest(ATDDvorlage);
                 File presetatddtest = new File ("./src/main/resources/txt/"+"ATDD"+PresetDataBase.testclassname+".java");
-                writetestfile(presetatddtest,vorlagetest);
+                writetestfile(presetatddtest,ATDDvorlage);
             }
         }
         //

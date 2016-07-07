@@ -35,10 +35,9 @@ public class Controller {
 		menustage.showAndWait();
 		Presetdeliverer.main();
 
-		if(PresetDataBase.atdd) phase=0;
+		if(PresetDataBase.atdd) phase=3;
 		else phase=1;
 
-		phase=1;
 		babyclock=new BabystepClock();
 		jte=new JavaToEditor("./src/main/resources/txt/"+Presetdeliverer.classname);
 		codefield.setText(jte.read());
@@ -46,6 +45,7 @@ public class Controller {
 		testcodefield.setText(jte.read());
 		managephasegui(phase);
 		timermanager();
+		if(PresetDataBase.atdd) check();
 	    
 
 	}
@@ -153,38 +153,32 @@ public class Controller {
            			}
             		break; 
         		case 3:
-					if (failedtests==0){
-						
-						if(ATDDFailedTests()==0){
-						savecode();
-						phase=0;
-						babyclock.reset();
-						managephasegui(phase);
+					if (failedtests==0) {
+						if (ATDDFailedTests(codefield.getText(), new JavaToEditor("./src/main/resources/txt/" + "ATDD" + Presetdeliverer.testname).read()) == 0) {
+							savecode();
+							babyclock.reset();
+							managephasegui(phase);
+							Parent root = (Parent) FXMLLoader.load(getClass().getResource("fxml/ATDDGUI.fxml"));
+							ATDDController.giveCodeText(codefield.getText());
+							Stage menustage = new Stage();
+							menustage.setTitle("ATDD");
+							menustage.setScene(new Scene(root));
+							menustage.showAndWait();
+							babyclock.reset();
+							phase = 1;
+							managephasegui(phase);
 						}
-					else{
-						 
-						savecode();
-						phase=1;
-						babyclock.reset();
-						managephasegui(phase);
+						else {
+
+							savecode();
+							phase = 1;
+							babyclock.reset();
+							managephasegui(phase);
+						}
 					}
-					break; }
-				case 0:
-
-					if(ATDDFailedTests()==1)
-						//saveATDD();
-
-						phase = 1;
-						Parent root=(Parent) FXMLLoader.load(getClass().getResource("fxml/ATDDGUI.fxml"));
-						Stage menustage=new Stage();
-						menustage.setTitle("ATDD");
-						menustage.setScene(new Scene(root));
-						menustage.showAndWait();
-						babyclock.reset();
-						managephasegui(phase);
 					break;
 						
-        		default: 
+        			default:
            			System.out.println("Fehler!");
            			break;
         	} 
@@ -213,13 +207,10 @@ public class Controller {
 
 	}
 
-		
-	public int ATDDFailedTests(){
-		String codecontent = codefield.getText();
+	public int ATDDFailedTests(String codecontent, String testcontent){
 		CompilationUnit Code = new CompilationUnit(Presetdeliverer.classname, codecontent, false);
 
-		String testcontent = ATDDController.ATDDtestcodefield.getText();
-		CompilationUnit Test = new CompilationUnit(Presetdeliverer.testname, testcontent, true);
+		CompilationUnit Test = new CompilationUnit("ATDD"+Presetdeliverer.testname, testcontent, true);
 
 		JavaStringCompiler compiler = CompilerFactory.getCompiler(Code, Test);
 
@@ -230,21 +221,24 @@ public class Controller {
 
 			int failedtests = testresults.getNumberOfFailedTests();
 
+			System.out.println("hier");
+
 			return failedtests;
 		}
 		else {
+			System.out.println("hier2");
 			CompilerResult output = compiler.getCompilerResult();
 			Collection<CompileError> codeerrors = output.getCompilerErrorsForCompilationUnit(Code);
 			if (codeerrors.size() != 0) {
 				String Fehlermeldung = codeerrors.toString();
-				errorfield.setText(errorfield.getText() + "\n" + Fehlermeldung);
-				errorfield.setText(errorfield.getText() + "\n" + codeerrors.size());
-			} else {
+				errorfield.setText(errorfield.getText()+"\n"+Fehlermeldung);
+				errorfield.setText(errorfield.getText()+"\n"+codeerrors.size());
+			}else{
 				Collection<CompileError> testerrors = output.getCompilerErrorsForCompilationUnit(Test);
-				if (testerrors.size() != 0) {
+				if (testerrors.size()!=0){
 					String Fehlermeldung = testerrors.toString();
-					errorfield.setText(errorfield.getText() + "\n" + Fehlermeldung);
-					errorfield.setText(errorfield.getText() + "\n" + (codeerrors.size()));
+					errorfield.setText(errorfield.getText()+"\n"+Fehlermeldung);
+					errorfield.setText(errorfield.getText()+"\n"+(codeerrors.size()));
 
 				}
 			}
@@ -252,8 +246,12 @@ public class Controller {
 		}
 
 	}
-	
-	
+
+
+
+
+
+
 	public void  backandcheck(){
 		testcodefield.setText(new JavaToEditor(Presetdeliverer.testname).read());
 		codefield.setText(new JavaToEditor(Presetdeliverer.classname).read());
