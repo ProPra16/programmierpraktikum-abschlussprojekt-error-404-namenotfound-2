@@ -64,7 +64,7 @@ public class Controller {
 	                    Platform.runLater(new Runnable(){
 	                    	@Override public void run(){
 	                            timerlabel.setText("TIMER: "+babyclock.currenttime+"/"+babyclock.maxtime);
-	                            if(babyclock.currenttime>=babyclock.maxtime-1&&PresetDataBase.babysteps){
+	                            if(babyclock.currenttime>=babyclock.maxtime-1){
 	                            	backandcheck();
 	                            	errorfield.setText("");
 	                            }
@@ -134,16 +134,6 @@ public class Controller {
 			TestResult testresults = compiler.getTestResult();
 		
 			int failedtests = testresults.getNumberOfFailedTests();
-			
-			errorfield.setText(errorfield.getText()+"\n"+"Anzahl Fehlgeschlagener Tests: "+ failedtests);
-			Collection<TestFailure> Fails = testresults.getTestFailures();
-			TestFailure Failure;
-			for ( Iterator<TestFailure> iterator1 = Fails.iterator(); iterator1.hasNext(); ){
-				Failure = iterator1.next();
-				String Message = Failure.getMessage();
-				String Methodname = Failure.getMethodName();
-				errorfield.setText(errorfield.getText()+"\n"+"Testmethode: "+Methodname+"\n"+Message+"\n");
-			}
 		
 			switch(phase){ 
         		case 1: 
