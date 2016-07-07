@@ -46,7 +46,7 @@ public class menucontroller {
 	
 	
 	@FXML
-	private void goon(){
+	public void goon(){
 		PresetDataBase.codepreset=codefile.getName();
 		if(own==false){
 			PresetDataBase.xmlpreset=presetfile.getName();
