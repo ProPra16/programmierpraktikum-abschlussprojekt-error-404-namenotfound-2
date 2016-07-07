@@ -57,7 +57,7 @@ public class menucontroller {
 		}
 		Stage stage=(Stage) continuebutton.getScene().getWindow();
 		stage.close();
-		System.out.println(PresetDataBase.codepreset);
+		
 	}
 	
 	

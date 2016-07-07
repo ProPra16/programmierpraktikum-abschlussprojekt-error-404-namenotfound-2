@@ -58,8 +58,6 @@ public void check(){
             TestResult testresults = compiler.getTestResult();
 
             int failedtests = testresults.getNumberOfFailedTests();
-            System.out.println(failedtests);
-            System.out.println(terminalfield.getText());
             terminalfield.setText(terminalfield.getText()+"\n"+"Anzahl Fehlgeschlagener Tests: "+ failedtests);
             terminalfield.appendText("");
             Collection<TestFailure> Fails = testresults.getTestFailures();

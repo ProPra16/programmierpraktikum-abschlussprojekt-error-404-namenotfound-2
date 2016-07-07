@@ -13,7 +13,6 @@ public class TxtToJava {
 
 	    public static void transform() {
 	        File source = new File(PresetDataBase.codefilepath);
-	        System.out.println(PresetDataBase.codefilepath);
 	        Path pfad = Paths.get(source.getAbsolutePath());
 
 	        ArrayList<String> buffer = new ArrayList<String>();
