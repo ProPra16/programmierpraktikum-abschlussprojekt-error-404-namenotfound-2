@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>programmierpraktikum-abschlussprojekt-error-404-namenotfound-2</name>
+	<comment>Project programmierpraktikum-abschlussprojekt-error-404-namenotfound-2 created by Buildship.</comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.buildship.core.gradleprojectbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
+	</natures>
+	<filteredResources>
+		<filter>
+			<id>1467897110195</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-projectRelativePath-matches-false-false-build</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1467897110279</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-projectRelativePath-matches-false-false-.gradle</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
+	<variableList>
+		<variable>
+			<name>lokale_ressourcen</name>
+			<value>file:/C:/Users/Sartos979/Desktop/propragit/programmierpraktikum-abschlussprojekt-error-404-namenotfound-2/src/main/resources</value>
+		</variable>
+	</variableList>
+</projectDescription>

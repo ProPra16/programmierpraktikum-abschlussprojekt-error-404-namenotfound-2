@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menucontroller">
+   <children>
+      <StackPane VBox.vgrow="ALWAYS">
+         <children>
+            <Label text="Menu">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <Separator prefWidth="200.0" VBox.vgrow="ALWAYS" />
+      <StackPane>
+         <children>
+            <Button mnemonicParsing="false" onAction="#loadpresetfile" text="Load Presetfile">
+               <StackPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </StackPane.margin>
+            </Button>
+         </children>
+      </StackPane>
+      <Separator prefWidth="200.0" />
+      <HBox>
+         <children>
+            <Label text="Classname:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="preclassname" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox>
+         <children>
+            <Label text="Testname:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="pretestname" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox>
+         <children>
+            <CheckBox fx:id="prebaby" mnemonicParsing="false" text="Babysteps">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </CheckBox>
+            <Label text="-&gt;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="premins" maxWidth="30.0" />
+            <Label text="Minutes">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="presecs" maxWidth="30.0" />
+            <Label text="Seconds">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+         <children>
+            <CheckBox fx:id="preatdd" mnemonicParsing="false" text="ATDD">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </CheckBox>
+         </children>
+      </HBox>
+      <StackPane>
+         <children>
+            <Button fx:id="presettingcreator" mnemonicParsing="false" onAction="#createpreset" text="Create preset" />
+         </children>
+      </StackPane>
+      <Separator prefWidth="200.0" VBox.vgrow="ALWAYS" />
+      <StackPane>
+         <children>
+            <Button mnemonicParsing="false" onAction="#loadcodefile" text="Load Codefile" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </VBox.margin>
+      </StackPane>
+      <Separator prefWidth="200.0" VBox.vgrow="ALWAYS" />
+      <StackPane>
+         <children>
+            <Button fx:id="continuebutton" mnemonicParsing="false" onAction="#goon" prefHeight="53.0" prefWidth="79.0" text="Continue" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </StackPane>
+   </children>
+</VBox>

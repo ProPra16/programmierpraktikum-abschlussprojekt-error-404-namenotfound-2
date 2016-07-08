@@ -1,0 +1,17 @@
+group 'de.hhu.propra.error-404-namenotfound-2'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = "Mastermain"
+
+repositories { 
+mavenCentral() 
+}
+
+dependencies {
+compile 'junit:junit:4.12'
+compile 'de.hhu.stups:virtual-kata-lib:+'
+}
+
