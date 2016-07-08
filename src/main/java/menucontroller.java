@@ -33,6 +33,9 @@ public class menucontroller {
 	     String presetcode=new String("<class name>"+preclassname.getText()+"\n<test name>"+pretestname.getText()+"\n<babysteps value>"+prebaby.isSelected()+" #"+premins.getText()+":"+presecs.getText()+"\n<atdd value>"+preatdd.isSelected());
 	     own=true;
 	     PresetDataBase.presetpath="./src/main/resources/txt/createdpreset.txt";
+	     if(PresetDataBase.codefilepath!=null && PresetDataBase.presetpath!=null){
+	    		continuebutton.setDisable(false);
+	    }
 	     
 	     try {
 	     FileWriter writer = new FileWriter(preset);
@@ -67,6 +70,9 @@ public class menucontroller {
     	codefilechooser.setTitle("Choose Codefile");
     	codefile =codefilechooser.showOpenDialog((Stage)continuebutton.getScene().getWindow());
     	PresetDataBase.codefilepath=codefile.getAbsolutePath();
+    	if(PresetDataBase.codefilepath!=null && (own==true ||PresetDataBase.presetpath!=null)){
+    		continuebutton.setDisable(false);
+    	}
     	
     }
     
@@ -77,5 +83,8 @@ public class menucontroller {
     	presetfile =codefilechooser.showOpenDialog((Stage)continuebutton.getScene().getWindow());
     	PresetDataBase.presetpath=presetfile.getAbsolutePath();
     	own=false;
+    	if(PresetDataBase.codefilepath!=null && (own==true ||PresetDataBase.presetpath!=null)){
+    		continuebutton.setDisable(false);
+    	}
     }
 }

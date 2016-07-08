@@ -1,4 +1,4 @@
 <class name>code
 <test name>codetest
-<babysteps value>false #:
+<babysteps value>true #00:30
 <atdd value>false
