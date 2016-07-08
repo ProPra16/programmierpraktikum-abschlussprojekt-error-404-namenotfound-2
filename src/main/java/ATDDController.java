@@ -13,7 +13,7 @@ import java.util.Iterator;
 
 public class ATDDController {
 	@FXML
-	public TextArea ATDDtestcodefield,terminalfield;
+	public TextArea ATDDtestcodefield,terminalfield,writtencodearea;
 
     @FXML
     public Button atddcheckbutton;

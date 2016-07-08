@@ -9,43 +9,72 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ATDDController">
    <children>
-      <VBox alignment="TOP_CENTER">
-         <children>
-            <Label text="ATDD Test" VBox.vgrow="ALWAYS">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <TextArea fx:id="ATDDtestcodefield" minHeight="300.0" VBox.vgrow="ALWAYS">
-               <VBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </VBox.margin>
-            </TextArea>
-            <Label text="Terminal" VBox.vgrow="ALWAYS">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <TextArea fx:id="ErrorField" editable="true" minHeight="200.0" VBox.vgrow="ALWAYS">
-               <VBox.margin>
-                  <Insets left="10.0" right="10.0" />
-               </VBox.margin>
-            </TextArea>
-            <Button fx:id="atddcheckbutton" mnemonicParsing="false" onAction="#check" text="Check" textFill="#44c348" VBox.vgrow="ALWAYS">
-               <font>
-                  <Font name="Arial Bold" size="22.0" />
-               </font>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </VBox.margin>
-            </Button>
-         </children>
-      </VBox>
+      <TabPane>
+         <tabs>
+            <Tab closable="false" text="ATDD">
+               <content>
+                  <VBox alignment="TOP_CENTER">
+                     <children>
+                        <Label text="ATDD Test" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="ATDDtestcodefield" minHeight="300.0" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </TextArea>
+                        <Label text="Terminal" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="terminalfield" editable="true" minHeight="200.0" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </TextArea>
+                        <Button fx:id="atddcheckbutton" mnemonicParsing="false" onAction="#check" text="Check" textFill="#44c348" VBox.vgrow="ALWAYS">
+                           <font>
+                              <Font name="Arial Bold" size="22.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Written Code">
+               <content>
+                  <VBox>
+                     <children>
+                        <StackPane>
+                           <children>
+                              <Label text="Wirtten Code">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <TextArea fx:id="wirttencodearea" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </TextArea>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
    </children>
 </HBox>
