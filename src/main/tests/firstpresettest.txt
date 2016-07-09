@@ -1,0 +1,5 @@
+<description>Testingcomment
+<class name>NeverLucky
+<test name>NeverLuckyTest
+<babysteps value>true #01:20
+<atdd value>true
