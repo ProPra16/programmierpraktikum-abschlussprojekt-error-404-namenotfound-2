@@ -1,6 +1,5 @@
 language: java
 jdk:
 - oraclejdk8
-script:
-gradle assemble
-gradle check
+before_install:
+ - chmod +x gradlew
