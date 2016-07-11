@@ -1,5 +1,0 @@
-<description>Konvertiert arabische in roemische Zahlen.
-<class name>code
-<test name>codetest
-<babysteps value>True #01:20
-<atdd value>True
