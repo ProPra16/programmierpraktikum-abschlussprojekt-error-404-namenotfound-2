@@ -5,9 +5,4 @@ public class codetest{
    public void testSomething(){
 assertEquals(code.returnone(),1);
    }
-
-@Test
-public void testtwo(){
-assertEquals(code.returntwo(),2);
-}
 }

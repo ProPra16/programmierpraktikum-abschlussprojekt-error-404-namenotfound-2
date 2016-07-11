@@ -1,4 +1,4 @@
-//by Julian
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,6 +13,11 @@ import javafx.scene.control.ToggleButton;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+/**
+ * Controller zum steuern der menuGUI.fxml
+ * @author Julian Biston
+ *
+ */
 public class menucontroller {
 	@FXML
 	Button continuebutton;

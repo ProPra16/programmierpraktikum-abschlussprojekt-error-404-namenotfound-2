@@ -1,5 +1,4 @@
 
-//goback()by Yulian, check() by Michael, timemanager()by Jonas and Julian, rest by Julian
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +17,11 @@ import java.util.Iterator;
 
 import vk.core.api.*;
 
+/**
+ * Controller zum steuern der GUI.fxml
+ * @author Julian Biston, parts: goback() by Yulian, check() by Michael, timemanager() by Jonas and Julian
+ *
+ */
 
 public class Controller {
 	public void initialize() throws IOException{
