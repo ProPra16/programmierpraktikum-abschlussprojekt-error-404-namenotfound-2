@@ -17,7 +17,7 @@ public class menucontroller {
 	@FXML
 	Button continuebutton;
 	@FXML
-	TextField xmlname,codename,preclassname,pretestname,premins,presecs;
+	TextField xmlname,codename,preclassname,pretestname,premins,presecs,predesc;
 	@FXML
 	CheckBox prebaby,preatdd;
 	
@@ -30,7 +30,7 @@ public class menucontroller {
 	private void createpreset(){
 		 File preset = new File("./src/main/resources/txt/createdpreset.txt");
 	     Path p = Paths.get(preset.getAbsolutePath());
-	     String presetcode=new String("<class name>"+preclassname.getText()+"\n<test name>"+pretestname.getText()+"\n<babysteps value>"+prebaby.isSelected()+" #"+premins.getText()+":"+presecs.getText()+"\n<atdd value>"+preatdd.isSelected());
+	     String presetcode=new String("<description>"+predesc.getText()+"\n<class name>"+preclassname.getText()+"\n<test name>"+pretestname.getText()+"\n<babysteps value>"+prebaby.isSelected()+" #"+premins.getText()+":"+presecs.getText()+"\n<atdd value>"+preatdd.isSelected());
 	     own=true;
 	     PresetDataBase.presetpath="./src/main/resources/txt/createdpreset.txt";
 	     if(PresetDataBase.codefilepath!=null && PresetDataBase.presetpath!=null){
