@@ -11,6 +11,9 @@ import vk.core.api.*;
 import java.util.Collection;
 import java.util.Iterator;
 
+/**
+ * author: Julian,Martin,Michael
+ */
 public class ATDDController {
 	@FXML
 	public TextArea ATDDtestcodefield,terminalfield,writtencodearea;

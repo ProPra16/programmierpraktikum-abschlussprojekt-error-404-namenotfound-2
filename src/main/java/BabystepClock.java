@@ -17,8 +17,6 @@ public class BabystepClock {
     int maxtime;
     volatile int currenttime;
     volatile boolean running=true;
-    volatile Label timelabel=new Label();
-    Thread time;
 
     public BabystepClock(){
         maxtime= PresetDataBase.babystepstime;
@@ -31,7 +29,6 @@ public class BabystepClock {
             public void run() {
                 while (true){
                 	if(maxtime >= currenttime&&running){
-	                	timelabel.setText("TIMER: "+currenttime+"/"+maxtime);
 	                    if (maxtime == currenttime){
 	                        checkandback();
 	                        reset();

@@ -19,7 +19,7 @@ import vk.core.api.*;
 
 /**
  * Controller zum steuern der GUI.fxml
- * @author Julian Biston, parts: goback() by Yulian, check() by Michael, timemanager() by Jonas and Julian
+ * @author Julian Biston, parts: goback() by Yulian, check() by Michael ATDD-modified by Martin , timemanager() by Jonas and Julian
  *
  */
 
