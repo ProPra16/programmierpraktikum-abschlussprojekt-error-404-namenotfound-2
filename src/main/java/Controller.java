@@ -44,6 +44,8 @@ public class Controller {
 		testcodefield.setText(jte.read());
 		managephasegui(phase);
 		timermanager();
+		savecode();
+		savetest();
 		if(PresetDataBase.atdd) check();
 	    
 
@@ -173,6 +175,7 @@ public class Controller {
 					if (failedtests==0) {
 						if (PresetDataBase.atdd && ATDDFailedTests(codefield.getText(), new JavaToEditor("./src/main/resources/txt/" + "ATDD" + Presetdeliverer.testname).read()) == 0) {
 							savecode();
+							savetest();
 							babyclock.reset();
 							managephasegui(phase);
 							Parent root = (Parent) FXMLLoader.load(getClass().getResource("fxml/ATDDGUI.fxml"));
@@ -188,6 +191,7 @@ public class Controller {
 						else {
 
 							savecode();
+							savetest();
 							phase = 1;
 							babyclock.reset();
 							managephasegui(phase);

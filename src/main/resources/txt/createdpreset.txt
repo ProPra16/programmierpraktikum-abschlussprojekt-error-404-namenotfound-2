@@ -1,5 +1,0 @@
-<description>bla
-<class name>
-<test name>
-<babysteps value>false #:
-<atdd value>false
