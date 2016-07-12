@@ -48,7 +48,7 @@ public class Controller {
 	    
 
 	}
-	
+
 	public void timermanager(){
         Thread time = new Thread(new Runnable() {
             @Override
@@ -114,9 +114,12 @@ public class Controller {
 		etj=new EditorToJava(Presetdeliverer.classname);
 		etj.save(codefield.getText());
 	}
-	
-	
-	
+
+
+	/**
+	 *
+	 * @throws IOException
+     */
 	@FXML
 	public void check() throws IOException{
 		String codecontent = codefield.getText();
@@ -229,6 +232,12 @@ public class Controller {
 
 	}
 
+	/**
+	 *
+	 * @param codecontent
+	 * @param testcontent
+     * @return
+     */
 	public int ATDDFailedTests(String codecontent, String testcontent){
 		CompilationUnit Code = new CompilationUnit(Presetdeliverer.classname, codecontent, false);
 
