@@ -6,7 +6,8 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menucontroller">
+
+<VBox maxHeight="410.0" maxWidth="305.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="305.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menucontroller">
    <children>
       <StackPane VBox.vgrow="ALWAYS">
          <children>
