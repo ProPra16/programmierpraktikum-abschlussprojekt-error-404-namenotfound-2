@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 /**
  * 
- * Main-Methode zum starten des Programms
+ * Main-method to start the program
  * @author Julian Biston
  * Alle GUI (fxml) Elemente/Dateien by Julian Biston
  *

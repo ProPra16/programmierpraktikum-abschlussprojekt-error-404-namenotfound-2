@@ -18,12 +18,17 @@ import java.util.Iterator;
 import vk.core.api.*;
 
 /**
- * Controller zum steuern der GUI.fxml
+ * Controller to control GUI.fxml
  * @author Julian Biston, parts: goback() by Yulian, check() by Michael ATDD-modified by Martin , timemanager() by Jonas and Julian
  *
  */
 
 public class Controller {
+	/**
+	 * @author Julian Biston
+	 * @throws IOException
+	 * Prepares all values, so the actual program can start properly.
+	 */
 	public void initialize() throws IOException{
 		//
 		firstcheck = true;
@@ -52,7 +57,9 @@ public class Controller {
 	    
 
 	}
-
+	/**
+	 * Imports the babyclock thread into the javafx thread of the controller.
+	 */
 	public void timermanager(){
         Thread time = new Thread(new Runnable() {
             @Override
@@ -110,11 +117,19 @@ public class Controller {
 		System.exit(0);
 	}
 	
+	/**
+	 * @author Julian Biston
+	 * Saves the testcode into the testfile.
+	 */
 	public void savetest(){
 		etj=new EditorToJava(Presetdeliverer.testname);
 		etj.save(testcodefield.getText());
 	}
 	
+	/**
+	 * @author Julian Biston
+	 * Saves the javacode into the Codefile.
+	 */
 	public void savecode(){
 		etj=new EditorToJava(Presetdeliverer.classname);
 		etj.save(codefield.getText());
@@ -321,6 +336,11 @@ public class Controller {
 		}
 	}
 	
+	/**
+	 * @author Julian Biston
+	 * @param phase
+	 * Manages the GUI, depending on the phase the program is in.
+	 */
 	private void managephasegui(int phase){//benutzung: managephasegui(aktuelle Phase)
 		if (phase==1){
 			babyclock.restart();

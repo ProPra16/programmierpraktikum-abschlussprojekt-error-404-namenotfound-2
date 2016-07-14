@@ -30,7 +30,9 @@ public class menucontroller {
 	File codefile;
 	File presetfile;
 	
-	
+	/**
+	 * creates the user-created presetting file
+	 */
 	@FXML 
 	private void createpreset(){
 		 File preset = new File("./src/main/resources/txt/createdpreset.txt");
@@ -52,7 +54,9 @@ public class menucontroller {
 
 	    }
 	
-	
+	/**
+	 * injects all values into the PresetDataBase
+	 */
 	@FXML
 	public void goon(){
 		PresetDataBase.codepreset=codefile.getName();
@@ -68,7 +72,9 @@ public class menucontroller {
 		
 	}
 	
-	
+	/**
+	 * opens a filechooser so the user can select the codefile he wants to use.
+	 */
     @FXML
     public void loadcodefile(){
     	FileChooser codefilechooser = new FileChooser();
@@ -81,6 +87,9 @@ public class menucontroller {
     	
     }
     
+    /**
+     * opens a filechooser so the user can select the presetfile he wants to use.
+     */
     @FXML
     public void loadpresetfile(){
     	FileChooser codefilechooser = new FileChooser();

@@ -14,7 +14,9 @@ import java.util.ArrayList;
 public class TxtToJava {
 
 	    
-
+		/**
+		 * transforms a txt file into a java file.
+		 */
 	    public static void transform() {
 	        File source = new File(PresetDataBase.codefilepath);
 	        Path pfad = Paths.get(source.getAbsolutePath());
@@ -32,6 +34,10 @@ public class TxtToJava {
 	        }
 	        save(code);
 	    }
+	    /**
+	     * 
+	     * @param String of a code that shall be saved into the java file.
+	     */
 	    public static void save(String a){
 	        File tmp = new File("./src/main/resources/txt/"+PresetDataBase.codeclassname+".java");
 	        Path p = Paths.get(tmp.getAbsolutePath());
