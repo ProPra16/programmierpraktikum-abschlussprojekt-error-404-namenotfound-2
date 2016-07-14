@@ -19,9 +19,17 @@ import java.util.ArrayList;
 public class JavaToEditor {
 
     private String filename;
-
+    
+    /**
+	 * Creates new instance of JavaToEditor and saves a filename as parameter.
+	 * @param name
+	 */
     public JavaToEditor(String name){this.filename = name;}
 
+    /**
+	 * Reads from File. Filename is taken from the instance variable.
+	 * @return String
+	 */
     public String read() {
         File source = new File(filename+".java");
         Path pfad = Paths.get(source.getAbsolutePath());

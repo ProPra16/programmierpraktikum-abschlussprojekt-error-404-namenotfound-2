@@ -10,16 +10,24 @@ import java.nio.file.Paths;
 public class EditorToJava {
 
     private String filename;
-
+    
+    /**
+	 * Creates new instance of EditorToJava and saves a filename as parameter.
+	 * @param name
+	 */
     public EditorToJava(String name){filename = name;}
 
-    public void save(String a){
+    /**
+	 * Saves File with the filename which is taken from the instance variable.
+	 * @param text
+	 */
+    public void save(String text){
         File tmp = new File(filename+".java");
         Path p = Paths.get(tmp.getAbsolutePath());
 
         try {
             FileWriter writer = new FileWriter(tmp);
-            writer.write(a);
+            writer.write(text);
             writer.flush();
             writer.close();
         }

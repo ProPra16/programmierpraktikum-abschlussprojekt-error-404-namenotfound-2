@@ -19,7 +19,7 @@ import vk.core.api.*;
 
 /**
  * Controller to control GUI.fxml
- * @author Julian Biston, parts: goback() by Yulian, check() by Michael ATDD-modified by Martin , timemanager() by Jonas and Julian
+ * @author Julian Biston, parts: goback(), back() by Yulian, check() by Michael ATDD-modified by Martin , timemanager() by Jonas and Julian
  *
  */
 
@@ -343,13 +343,20 @@ public class Controller {
 
 
 
-
+	/**
+	 * Resets code, testcode and the timer.
+	 */
 	public void  backandcheck(){
 		testcodefield.setText(new JavaToEditor(Presetdeliverer.testname).read());
 		codefield.setText(new JavaToEditor(Presetdeliverer.classname).read());
 		babyclock.reset();
 	}
 	
+	/**
+	 * Sets firstcheck to true if called in the first cicle.
+	 * Always resets codefield on call.
+	 * Calls managephasegui() and resets Timer if called while in phase 2.
+	 */
 	@FXML
 	public void goback(){
 		if(phase == 2){
