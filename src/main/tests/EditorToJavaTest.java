@@ -13,9 +13,9 @@ public class EditorToJavaTest {
                 "\t\tSystem.out.println(\"Hello World\");\n" +
                 "\t}\n" +
                 "}";
-        EditorToJava etj = new EditorToJava("HelloWorld");
+        EditorToJava etj = new EditorToJava("HelloWorld2");
         etj.save(input);
-        String output = new JavaToEditor("HelloWorld").read();
+        String output = new JavaToEditor("HelloWorld2").read();
         assertEquals(input,output);
     }
 
