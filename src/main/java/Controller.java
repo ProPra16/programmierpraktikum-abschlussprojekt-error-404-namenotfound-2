@@ -122,7 +122,9 @@ public class Controller {
 
 
 	/**
-	 *
+	 * Changes the phase variable and manages the compilation of code
+	 * depending on the phase. Also triggers managephasegui().
+	 * Phase must contain integer values 1-3.
 	 * @throws IOException
      */
 	@FXML
