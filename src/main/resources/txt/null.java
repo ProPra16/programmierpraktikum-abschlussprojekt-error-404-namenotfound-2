@@ -1,6 +1,6 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
-public class footest{
+public class null{
    @Test
    public void testSomething(){
    }

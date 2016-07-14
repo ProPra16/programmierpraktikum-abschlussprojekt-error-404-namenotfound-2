@@ -3,6 +3,5 @@ import org.junit.Test;
 public class footest{
    @Test
    public void testSomething(){
-	assertEquals(foo.bar(),2);
    }
 }

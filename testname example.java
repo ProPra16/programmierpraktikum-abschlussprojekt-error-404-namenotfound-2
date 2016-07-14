@@ -1,6 +1,6 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
-public class testnameexample{
+public class testname example{
    @Test
    public void testSomething(){
    }
