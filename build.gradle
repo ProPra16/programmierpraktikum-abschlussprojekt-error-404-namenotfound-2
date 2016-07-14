@@ -15,3 +15,8 @@ compile 'junit:junit:4.12'
 compile 'de.hhu.stups:virtual-kata-lib:+'
 }
 
+javadoc {
+	options {
+		links ("http://docs.oracle.com/javase/8/docs/api/", "http://docs.oracle.com/javase/8/javafx/api/")
+	}
+}
