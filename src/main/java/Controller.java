@@ -26,7 +26,9 @@ import vk.core.api.*;
 public class Controller {
 	public void initialize() throws IOException{
 		//
-		
+		firstcheck = true;
+		secondcheck = true;
+
 		Parent root=(Parent) FXMLLoader.load(getClass().getResource("fxml/menuGUI.fxml"));
 		Stage menustage=new Stage();
 		menustage.setTitle("Menu");
@@ -80,7 +82,8 @@ public class Controller {
 	EditorToJava etj;
 	JavaToEditor jte;
 	BabystepClock babyclock;
-	
+	boolean firstcheck;
+	boolean secondcheck;
 	
 	private static int phase;
 	
@@ -124,6 +127,12 @@ public class Controller {
      */
 	@FXML
 	public void check() throws IOException{
+		if(firstcheck){
+			savetest();
+			phase = 2;
+			managephasegui(phase);
+			firstcheck = false;
+		}
 		String codecontent = codefield.getText();
 		CompilationUnit Code = new CompilationUnit(Presetdeliverer.classname, codecontent, false);
 	
@@ -169,7 +178,8 @@ public class Controller {
            				babyclock.reset();
            				managephasegui(phase);
 						errorfield.setText("");
-           			}
+						secondcheck = false;
+					}
             		break; 
         		case 3:
 					if (failedtests==0) {
@@ -295,6 +305,9 @@ public class Controller {
 	@FXML
 	public void goback(){
 		if(phase == 2){
+			if(secondcheck){
+				firstcheck = true;
+			}
 			codefield.setText(new JavaToEditor(Presetdeliverer.classname).read());
 			phase = 1;
 			
