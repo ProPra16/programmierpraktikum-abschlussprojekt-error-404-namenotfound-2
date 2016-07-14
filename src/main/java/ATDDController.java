@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.Iterator;
 
 /**
- * author: Julian,Martin,Michael
+ * @author Julian,Martin,Michael
  */
 public class ATDDController {
 	@FXML
@@ -22,33 +22,65 @@ public class ATDDController {
     public Button atddcheckbutton;
 
     public static String codefieldText;
+    public static boolean atddfirstcheck;
 
-    
-    
+
+    /**
+     * Lädt den Inhalt der Textfelder wenn ein ATDD Fenster aufgerufen wird.
+     */
     public void initialize(){
         ATDDtestcodefield.setText(new JavaToEditor("./src/main/resources/txt/"+"ATDD"+Presetdeliverer.testname).read());
         terminalfield.setText("");
         writtencodearea.setText(new JavaToEditor("./src/main/resources/txt/"+Presetdeliverer.classname).read());
     }
 
-    
-    public static void giveCodeText(String codefield){
+    /**
+     * Das ATDD Programm muss den Code kennen zu dem es testen soll. Daher wird mit giveCodeText
+     * der Code vom Controller an den ATDDControler übergeben.
+     * @param codefield
+     * @param firstcheck
+     *
+     */
+    public static void giveCodeText(String codefield, boolean firstcheck){
         codefieldText = codefield;
+        atddfirstcheck = firstcheck;
     }
 
+    /**
+     * Eine einfache Methode, die den aktuellen Text aus dem Textfeld speichert.
+     */
     public void saveATDD(){
         EditorToJava etj = new EditorToJava("./src/main/resources/txt/"+"ATDD"+Presetdeliverer.testname);
         etj.save(ATDDtestcodefield.getText());
     }
+
+    /**
+     *     Die Methode für den Checkbutton. Es wird geprüft wie viele Tests laufen. Nur wenn genau 1 Test fehlschlägt soll
+     *     der Testcode gespeichert und das ATDD Fenster geschlossen werden.
+     */
+
+
 @FXML
 public void check(){
-	if(ATDDFailedTests(codefieldText,ATDDtestcodefield.getText())==1){
+
+    System.out.println(atddfirstcheck);
+
+	if(ATDDFailedTests(codefieldText,ATDDtestcodefield.getText())==1 || atddfirstcheck){
         saveATDD();
         Stage stage=(Stage) atddcheckbutton.getScene().getWindow();
         stage.close();
     }
 }
 
+    /**
+     * Inspired by check() aus dem Controller
+     * Die Methode kompiliert den Code und die Tests. Gibt es dabei Fehler werden diese in dem Terminal ausgegeben.
+     * Außerdem wird eine -1 returned, damit in der Check Methode das Fenster nicht geschlossen wird.
+     * Kompilieret Beides, so werden die Tests durchgeführt und es wird die Anzahl der fehlgeschlagenen Tests returned.
+     * @param codecontent
+     * @param testcontent
+     * @return
+     */
     public int ATDDFailedTests(String codecontent, String testcontent){
         CompilationUnit Code = new CompilationUnit(Presetdeliverer.classname, codecontent, false);
 

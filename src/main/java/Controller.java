@@ -31,8 +31,6 @@ public class Controller {
 	 */
 	public void initialize() throws IOException{
 		//
-		firstcheck = true;
-		secondcheck = true;
 
 		Parent root=(Parent) FXMLLoader.load(getClass().getResource("fxml/menuGUI.fxml"));
 		Stage menustage=new Stage();
@@ -43,6 +41,15 @@ public class Controller {
 
 		if(PresetDataBase.atdd) phase=3;
 		else phase=1;
+
+		firstcheck = true;
+		secondcheck = true;
+		if(PresetDataBase.atdd){
+			atddfirstcheck = true;
+			atddsecondcheck = true;
+			firstcheck = false;
+			secondcheck = false;
+		}
 
 		babyclock=new BabystepClock();
 		jte=new JavaToEditor("./src/main/resources/txt/"+Presetdeliverer.classname);
@@ -89,8 +96,7 @@ public class Controller {
 	EditorToJava etj;
 	JavaToEditor jte;
 	BabystepClock babyclock;
-	boolean firstcheck;
-	boolean secondcheck;
+	boolean firstcheck, secondcheck, atddfirstcheck, atddsecondcheck;
 	
 	private static int phase;
 	
@@ -144,11 +150,32 @@ public class Controller {
      */
 	@FXML
 	public void check() throws IOException{
-		if(firstcheck){
+		if(firstcheck ){
 			savetest();
-			phase = 2;
+			savecode();
+			phase=2;
+			babyclock.reset();
 			managephasegui(phase);
+			errorfield.setText("");
 			firstcheck = false;
+		}
+		if(atddfirstcheck){
+			savecode();
+			savetest();
+			babyclock.reset();
+			managephasegui(phase);
+			Parent root = (Parent) FXMLLoader.load(getClass().getResource("fxml/ATDDGUI.fxml"));
+			ATDDController.giveCodeText(codefield.getText(),atddfirstcheck);
+			Stage menustage = new Stage();
+			menustage.setTitle("ATDD");
+			menustage.setScene(new Scene(root));
+			menustage.showAndWait();
+			babyclock.reset();
+			phase = 1;
+			managephasegui(phase);
+			atddfirstcheck = false;
+			firstcheck = true;
+			secondcheck = true;
 		}
 		String codecontent = codefield.getText();
 		CompilationUnit Code = new CompilationUnit(Presetdeliverer.classname, codecontent, false);
@@ -200,13 +227,13 @@ public class Controller {
             		break; 
         		case 3:
 					if (failedtests==0) {
-						if (PresetDataBase.atdd && ATDDFailedTests(codefield.getText(), new JavaToEditor("./src/main/resources/txt/" + "ATDD" + Presetdeliverer.testname).read()) == 0) {
+						if (PresetDataBase.atdd && ATDDFailedTests(codefield.getText(), new JavaToEditor("./src/main/resources/txt/" + "ATDD" + Presetdeliverer.testname).read()) == 0 || atddsecondcheck) {
 							savecode();
 							savetest();
 							babyclock.reset();
 							managephasegui(phase);
 							Parent root = (Parent) FXMLLoader.load(getClass().getResource("fxml/ATDDGUI.fxml"));
-							ATDDController.giveCodeText(codefield.getText());
+							ATDDController.giveCodeText(codefield.getText(),firstcheck);
 							Stage menustage = new Stage();
 							menustage.setTitle("ATDD");
 							menustage.setScene(new Scene(root));
@@ -214,6 +241,7 @@ public class Controller {
 							babyclock.reset();
 							phase = 1;
 							managephasegui(phase);
+							atddsecondcheck = false;
 						}
 						else {
 
@@ -264,7 +292,10 @@ public class Controller {
 	}
 
 	/**
-	 *
+	 *Inspired by check()
+	 * Die Methode kompiliert den Code und die Tests. Gibt es dabei Fehler werden diese in dem Terminal ausgegeben.
+	 * Außerdem wird eine -1 returned, damit die Phase in der Check Methode nicht geändert wird.
+	 * Kompilieret Beides, so werden die Tests durchgeführt und es wird die Anzahl der fehlgeschlagenen Tests returned.
 	 * @param codecontent
 	 * @param testcontent
      * @return
