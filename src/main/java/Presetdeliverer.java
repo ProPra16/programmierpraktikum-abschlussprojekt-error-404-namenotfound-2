@@ -12,6 +12,11 @@ public class Presetdeliverer {
         static String classcomment;
         static String testname;
 
+    /**
+     * Verwaltet die Aufrufe vom XMLReader sowie TxtToJava.
+     * Besitzt Codevorlaen, welche zum befüllen weiter gegeben werden.
+     * Sollte ATDD aktiv sein, wird außerdem das schreiben einer weiteren Testdatei veranlasst.
+     */
         public static void main (){
             String vorlagetest ="import static org.junit.Assert.*;\n"+
                                 "import org.junit.Test;\n"+
@@ -42,8 +47,13 @@ public class Presetdeliverer {
                 writetestfile(presetatddtest,ATDDvorlage);
             }
         }
-        //
-        public static String fillvorlagetest (String testvorlage){
+
+    /**
+     * Befüllt die TExtvorlage bin den gefilterten Werten asu der PresetDataBase.
+     * @param testvorlage
+     * @return String
+     */
+    public static String fillvorlagetest (String testvorlage){
             String start="";
             String end="";
             int i =0;
@@ -54,7 +64,12 @@ public class Presetdeliverer {
             end = testvorlage.substring(i+1,testvorlage.length());
             return start+end;
         }
- 
+
+    /**
+     *
+     * @param outputfile
+     * @param test
+     */
         public static void writetestfile(File outputfile,String test) {
             Path p = Paths.get(outputfile.getAbsolutePath());
             try {

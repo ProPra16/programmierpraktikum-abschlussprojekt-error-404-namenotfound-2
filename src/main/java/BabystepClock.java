@@ -11,18 +11,26 @@ import javafx.scene.control.Label;
  * - Idee ist es gibt nur einen Timer, dieser läuft das gesamte Programm über.
  * - Soll die BabystepClock angehalten werden geschieht dies durch das aufrufen der Methode stop();
  * - Soll die BabystepClock wieder gestartet werden, geschieht dies durch restart();
- * - Das BabystepClock Objekt besitzt ein Label welches die Aktuelle Zeit immer aktuallisiert besitzt.
  */
 public class BabystepClock {
     int maxtime;
     volatile int currenttime;
     volatile boolean running=true;
 
+    /**
+     * Konstuktor, Ließt die Zeitobergrenze aus der PresetDataBase ein, Setzt die Aktuelle Zeit
+     * der BabyCLock au fden Startwert, und ruft start(); auf.
+     */
     public BabystepClock(){
         maxtime= PresetDataBase.babystepstime;
         currenttime=-1;
         this.start();
     }
+
+    /**
+     * Startmethode der BabyClock, erstellt einen neuen Thread dessen Aufgabe es ist jede Sekunde den Zähler
+     * der BabyClock um eins zu erhöhen, undzwa solange wie der Timer der Uhr laufen soll.
+     */
     public void start(){
         Thread time = new Thread(new Runnable() {
             @Override
@@ -30,7 +38,6 @@ public class BabystepClock {
                 while (true){
                 	if(maxtime >= currenttime&&running){
 	                    if (maxtime == currenttime){
-	                        checkandback();
 	                        reset();
 	                    }
 	                    
@@ -46,21 +53,27 @@ public class BabystepClock {
         });
         time.start();
     }
+
+    /**
+     * Setzt den Zähler der BabyClock wieder auf sienen Uhrsprünglichen Wert zurück
+     */
     public void reset (){
         currenttime =-1;
     }
-    public void checkandback(){
-        //Controller.checkandback();
-    }
+
+    /**
+     * Stoppt das hochzählen des BabyClock Zählers.
+     */
     public void stop(){
         running=false;
         
     }
+    /**
+     * Setzt den Zähler der BabyClock wieder auf den Anfangswert zurück und startet das sekündliche
+     * Hochzählen des Timers wieder.
+     */
     public void restart(){
-        
-        
         this.reset();
         running=true;
     }
-
 }

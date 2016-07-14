@@ -4,6 +4,11 @@ import java.io.*;
  * Created by jonas on 21.06.2016.
  */
 public class XMLReader {
+    /**
+     * Ließt eine Presettextdatei ein und Filtert die Zeilen welche die Werte für die PresetDataBase besitzen aus.
+     * Die Zeilen welche die gewünschten Programm Presets beinhalten werden an den Presetsetter weiter gegeben.
+     * Die Daten welche der Presetsetter gelesen hat, werden in die PresetDataBase geschrieben.
+     */
     public static void reader() {
         File inputdata = new File(PresetDataBase.presetpath);
         String currentreadingline =" ";
