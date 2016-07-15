@@ -1,0 +1,8 @@
+Protokoll 12.07
+
+Besprechung der Systembeschreibung.
+Jeder schreibt die Beschreibung für seine Methoden und Yulian fügt sie zusammen.
+
+Letzte Bugfixes:
+Beim Ablauf des Timers wird eine falsche Datei geladen. 
+Gefixt durch speichern der Dateien im initialize.
