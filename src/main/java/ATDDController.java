@@ -31,7 +31,7 @@ public class ATDDController {
     public void initialize(){
         ATDDtestcodefield.setText(new JavaToEditor("./src/main/resources/txt/"+"ATDD"+Presetdeliverer.testname).read());
         terminalfield.setText("");
-        writtencodearea.setText(new JavaToEditor("./src/main/resources/txt/"+Presetdeliverer.classname).read());
+        writtencodearea.setText(new JavaToEditor(Presetdeliverer.classname).read());
     }
 
     /**
@@ -41,9 +41,9 @@ public class ATDDController {
      * @param firstcheck
      *
      */
-    public static void giveCodeText(String codefield, boolean firstcheck){
+    public static void giveCodeText(String codefield){
         codefieldText = codefield;
-        atddfirstcheck = firstcheck;
+        
     }
 
     /**
@@ -62,10 +62,13 @@ public class ATDDController {
 
 @FXML
 public void check(){
-
-    System.out.println(atddfirstcheck);
-
-	if(ATDDFailedTests(codefieldText,ATDDtestcodefield.getText())==1 || atddfirstcheck){
+	if(PresetDataBase.atddfirstcheck){
+		saveATDD();
+        Stage stage=(Stage) atddcheckbutton.getScene().getWindow();
+        stage.close();
+	}
+	
+	if(ATDDFailedTests(codefieldText,ATDDtestcodefield.getText())==1){
         saveATDD();
         Stage stage=(Stage) atddcheckbutton.getScene().getWindow();
         stage.close();

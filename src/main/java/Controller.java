@@ -45,8 +45,7 @@ public class Controller {
 		firstcheck = true;
 		secondcheck = true;
 		if(PresetDataBase.atdd){
-			atddfirstcheck = true;
-			atddsecondcheck = true;
+			PresetDataBase.atddfirstcheck = true;
 			firstcheck = false;
 			secondcheck = false;
 		}
@@ -159,13 +158,13 @@ public class Controller {
 			errorfield.setText("");
 			firstcheck = false;
 		}
-		if(atddfirstcheck){
+		if(PresetDataBase.atddfirstcheck){
 			savecode();
 			savetest();
 			babyclock.reset();
 			managephasegui(phase);
 			Parent root = (Parent) FXMLLoader.load(getClass().getResource("fxml/ATDDGUI.fxml"));
-			ATDDController.giveCodeText(codefield.getText(),atddfirstcheck);
+			ATDDController.giveCodeText(codefield.getText());
 			Stage menustage = new Stage();
 			menustage.setTitle("ATDD");
 			menustage.setScene(new Scene(root));
@@ -173,10 +172,11 @@ public class Controller {
 			babyclock.reset();
 			phase = 1;
 			managephasegui(phase);
-			atddfirstcheck = false;
-			firstcheck = true;
-			secondcheck = true;
+			PresetDataBase.atddfirstcheck=false;
+			firstcheck=true;
+			secondcheck=true;
 		}
+
 		String codecontent = codefield.getText();
 		CompilationUnit Code = new CompilationUnit(Presetdeliverer.classname, codecontent, false);
 	
@@ -226,14 +226,16 @@ public class Controller {
 					}
             		break; 
         		case 3:
-					if (failedtests==0) {
-						if (PresetDataBase.atdd && ATDDFailedTests(codefield.getText(), new JavaToEditor("./src/main/resources/txt/" + "ATDD" + Presetdeliverer.testname).read()) == 0 || atddsecondcheck) {
+        			
+        			if (failedtests==0) {
+						
+						if (PresetDataBase.atdd && ATDDFailedTests(codefield.getText(), new JavaToEditor("./src/main/resources/txt/" + "ATDD" + Presetdeliverer.testname).read()) == 0) {
 							savecode();
 							savetest();
 							babyclock.reset();
 							managephasegui(phase);
 							Parent root = (Parent) FXMLLoader.load(getClass().getResource("fxml/ATDDGUI.fxml"));
-							ATDDController.giveCodeText(codefield.getText(),firstcheck);
+							ATDDController.giveCodeText(codefield.getText());
 							Stage menustage = new Stage();
 							menustage.setTitle("ATDD");
 							menustage.setScene(new Scene(root));
@@ -241,7 +243,7 @@ public class Controller {
 							babyclock.reset();
 							phase = 1;
 							managephasegui(phase);
-							atddsecondcheck = false;
+							
 						}
 						else {
 

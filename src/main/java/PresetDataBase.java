@@ -16,5 +16,6 @@ public class PresetDataBase {
 	static int ATDDFailedTests;
 	static String codefilepath;
 	static String presetpath;
+	static boolean atddfirstcheck;
 	
 }

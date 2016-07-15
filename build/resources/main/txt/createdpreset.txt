@@ -1,5 +1,5 @@
-<description>description example
-<class name>foo
-<test name>footest
-<babysteps value>false #00:00
-<atdd value>false
+<description>test
+<class name>code
+<test name>codetest
+<babysteps value>false #:
+<atdd value>true
