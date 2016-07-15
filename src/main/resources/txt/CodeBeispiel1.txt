@@ -1,4 +1,4 @@
-public static class code{
+public class code{
 	public static int returnone(){
 		
 	}
