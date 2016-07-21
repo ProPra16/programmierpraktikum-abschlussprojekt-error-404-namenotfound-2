@@ -2,6 +2,7 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -77,12 +78,18 @@ public class menucontroller {
 	 */
     @FXML
     public void loadcodefile(){
-    	FileChooser codefilechooser = new FileChooser();
-    	codefilechooser.setTitle("Choose Codefile");
-    	codefile =codefilechooser.showOpenDialog((Stage)continuebutton.getScene().getWindow());
-    	PresetDataBase.codefilepath=codefile.getAbsolutePath();
-    	if(PresetDataBase.codefilepath!=null && (own==true ||PresetDataBase.presetpath!=null)){
-    		continuebutton.setDisable(false);
+    	try{
+	    	FileChooser codefilechooser = new FileChooser();
+	    	codefilechooser.setTitle("Choose Codefile");
+	    	codefile =codefilechooser.showOpenDialog((Stage)continuebutton.getScene().getWindow());
+	    	PresetDataBase.codefilepath=codefile.getAbsolutePath();
+	    	if(PresetDataBase.codefilepath!=null && (own==true ||PresetDataBase.presetpath!=null)){
+	    		continuebutton.setDisable(false);
+	    	}
+    	}
+    	catch(RuntimeException e){
+    		System.out.println("Keine Code-Datei ausgewählt!");
+    		
     	}
     	
     }
@@ -92,13 +99,19 @@ public class menucontroller {
      */
     @FXML
     public void loadpresetfile(){
-    	FileChooser codefilechooser = new FileChooser();
-    	codefilechooser.setTitle("Choose Presetfile");
-    	presetfile =codefilechooser.showOpenDialog((Stage)continuebutton.getScene().getWindow());
-    	PresetDataBase.presetpath=presetfile.getAbsolutePath();
-    	own=false;
-    	if(PresetDataBase.codefilepath!=null && (own==true ||PresetDataBase.presetpath!=null)){
-    		continuebutton.setDisable(false);
+    	try{
+	    	FileChooser codefilechooser = new FileChooser();
+	    	codefilechooser.setTitle("Choose Presetfile");
+	    	presetfile =codefilechooser.showOpenDialog((Stage)continuebutton.getScene().getWindow());
+	    	PresetDataBase.presetpath=presetfile.getAbsolutePath();
+	    	own=false;
+	    	if(PresetDataBase.codefilepath!=null && (own==true ||PresetDataBase.presetpath!=null)){
+	    		continuebutton.setDisable(false);
+	    	}
+    	}
+    	catch(RuntimeException e){
+    		System.out.println("Keine Preset-Datei ausgewählt!");
+    		
     	}
     }
 }
