@@ -42,14 +42,6 @@ public class Controller {
 		if(PresetDataBase.atdd) phase=3;
 		else phase=1;
 
-		firstcheck = true;
-		secondcheck = true;
-		if(PresetDataBase.atdd){
-			PresetDataBase.atddfirstcheck = true;
-			firstcheck = false;
-			secondcheck = false;
-		}
-
 		babyclock=new BabystepClock();
 		jte=new JavaToEditor("./src/main/resources/txt/"+Presetdeliverer.classname);
 		codefield.setText(jte.read());
@@ -95,7 +87,6 @@ public class Controller {
 	EditorToJava etj;
 	JavaToEditor jte;
 	BabystepClock babyclock;
-	boolean firstcheck, secondcheck, atddfirstcheck, atddsecondcheck;
 	
 	private static int phase;
 	
@@ -149,34 +140,7 @@ public class Controller {
      */
 	@FXML
 	public void check() throws IOException{
-		if(firstcheck ){
-			savetest();
-			savecode();
-			phase=2;
-			babyclock.reset();
-			managephasegui(phase);
-			errorfield.setText("");
-			firstcheck = false;
-		}
-		if(PresetDataBase.atddfirstcheck){
-			savecode();
-			savetest();
-			babyclock.reset();
-			managephasegui(phase);
-			Parent root = (Parent) FXMLLoader.load(getClass().getResource("fxml/ATDDGUI.fxml"));
-			ATDDController.giveCodeText(codefield.getText());
-			Stage menustage = new Stage();
-			menustage.setTitle("ATDD");
-			menustage.setScene(new Scene(root));
-			menustage.showAndWait();
-			babyclock.reset();
-			phase = 1;
-			managephasegui(phase);
-			PresetDataBase.atddfirstcheck=false;
-			firstcheck=true;
-			secondcheck=true;
-		}
-
+	
 		String codecontent = codefield.getText();
 		CompilationUnit Code = new CompilationUnit(Presetdeliverer.classname, codecontent, false);
 	
@@ -187,7 +151,27 @@ public class Controller {
 		
 		compiler.compileAndRunTests();
 		CompilerResult compileresults= compiler.getCompilerResult();
-		if (compileresults.hasCompileErrors()==false){
+		Collection<CompileError> codeerrors2 = compileresults.getCompilerErrorsForCompilationUnit(Test);
+		
+		CompileError compileerrors2;
+		boolean Methodnotfound=false;
+		if(codeerrors2.size()==1){
+			for (Iterator<CompileError> iterator4 = codeerrors2.iterator(); iterator4.hasNext(); ){
+				compileerrors2 = iterator4.next();
+				String Message = compileerrors2.getMessage();
+				if (Message.contains("symbol")){
+					Methodnotfound=true;
+				}
+			}
+		}
+		if (Methodnotfound&&phase==1){
+			savetest();
+			phase=2;
+			babyclock.reset();
+			managephasegui(phase);
+			errorfield.setText("");
+		
+		}else if(compileresults.hasCompileErrors()==false){
 			TestResult testresults = compiler.getTestResult();
 		
 			int failedtests = testresults.getNumberOfFailedTests();
@@ -222,7 +206,6 @@ public class Controller {
            				babyclock.reset();
            				managephasegui(phase);
 						errorfield.setText("");
-						secondcheck = false;
 					}
             		break; 
         		case 3:
@@ -362,9 +345,6 @@ public class Controller {
 	@FXML
 	public void goback(){
 		if(phase == 2){
-			if(secondcheck){
-				firstcheck = true;
-			}
 			codefield.setText(new JavaToEditor(Presetdeliverer.classname).read());
 			phase = 1;
 			

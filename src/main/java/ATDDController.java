@@ -62,6 +62,7 @@ public class ATDDController {
 
 @FXML
 public void check(){
+	ATDDFailedTests(codefieldText,ATDDtestcodefield.getText());
 	if(PresetDataBase.atddfirstcheck){
 		saveATDD();
         Stage stage=(Stage) atddcheckbutton.getScene().getWindow();
@@ -93,6 +94,22 @@ public void check(){
 
         compiler.compileAndRunTests();
         CompilerResult compileresults= compiler.getCompilerResult();
+        Collection<CompileError> codeerrors2 = compileresults.getCompilerErrorsForCompilationUnit(Test);
+		
+		CompileError compileerrors2;
+		PresetDataBase.atddfirstcheck=false;
+		if(codeerrors2.size()==1){
+			for (Iterator<CompileError> iterator4 = codeerrors2.iterator(); iterator4.hasNext(); ){
+				compileerrors2 = iterator4.next();
+				String Message = compileerrors2.getMessage();
+				if (Message.contains("cannot find symbol")){
+					PresetDataBase.atddfirstcheck=true;
+				}
+			}
+		}
+        
+        
+        
         if (compileresults.hasCompileErrors()==false) {
             TestResult testresults = compiler.getTestResult();
 
