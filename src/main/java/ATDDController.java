@@ -26,7 +26,7 @@ public class ATDDController {
 
 
     /**
-     * Lädt den Inhalt der Textfelder wenn ein ATDD Fenster aufgerufen wird.
+     * Laedt den Inhalt der Textfelder wenn ein ATDD Fenster aufgerufen wird.
      */
     public void initialize(){
         ATDDtestcodefield.setText(new JavaToEditor("./src/main/resources/txt/"+"ATDD"+Presetdeliverer.testname).read());
@@ -36,7 +36,7 @@ public class ATDDController {
 
     /**
      * Das ATDD Programm muss den Code kennen zu dem es testen soll. Daher wird mit giveCodeText
-     * der Code vom Controller an den ATDDControler übergeben.
+     * der Code vom Controller an den ATDDControler uebergeben.
      * @param codefield
      * @param firstcheck
      *
@@ -55,7 +55,7 @@ public class ATDDController {
     }
 
     /**
-     *     Die Methode für den Checkbutton. Es wird geprüft wie viele Tests laufen. Nur wenn genau 1 Test fehlschlägt soll
+     *     Die Methode fuer den Checkbutton. Es wird geprueft wie viele Tests laufen. Nur wenn genau 1 Test fehlschlaegt soll
      *     der Testcode gespeichert und das ATDD Fenster geschlossen werden.
      */
 
@@ -80,7 +80,7 @@ public void check(){
      * Inspired by check() aus dem Controller
      * Die Methode kompiliert den Code und die Tests. Gibt es dabei Fehler werden diese in dem Terminal ausgegeben.
      * Außerdem wird eine -1 returned, damit in der Check Methode das Fenster nicht geschlossen wird.
-     * Kompilieret Beides, so werden die Tests durchgeführt und es wird die Anzahl der fehlgeschlagenen Tests returned.
+     * Kompilieret Beides, so werden die Tests durchgefuehrt und es wird die Anzahl der fehlgeschlagenen Tests returned.
      * @param codecontent
      * @param testcontent
      * @return

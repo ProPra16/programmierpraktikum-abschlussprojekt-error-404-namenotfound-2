@@ -5,8 +5,8 @@ import java.io.*;
  */
 public class XMLReader {
     /**
-     * Ließt eine Presettextdatei ein und Filtert die Zeilen welche die Werte für die PresetDataBase besitzen aus.
-     * Die Zeilen welche die gewünschten Programm Presets beinhalten werden an den Presetsetter weiter gegeben.
+     * Ließt eine Presettextdatei ein und Filtert die Zeilen welche die Werte fuer die PresetDataBase besitzen aus.
+     * Die Zeilen welche die gewuenschten Programm Presets beinhalten werden an den Presetsetter weiter gegeben.
      * Die Daten welche der Presetsetter gelesen hat, werden in die PresetDataBase geschrieben.
      */
     public static void reader() {

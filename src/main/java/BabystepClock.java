@@ -6,9 +6,9 @@ import javafx.scene.control.Label;
  * Benutzung:
  * Erstelle ein Objekt BabystepClock
  * - Sobald es erstellt ist wird im Hintergrund die Zeit laufen.
- * - Ist die Zeit am angegebenen Limit wir back und check ausgeführt und der Timer auf 0 zurück gesetzt.
- * - Sobald der Check Button gedrückt wird. muss man danach sofort einmal die reset() Methode aufrufen
- * - Idee ist es gibt nur einen Timer, dieser läuft das gesamte Programm über.
+ * - Ist die Zeit am angegebenen Limit wir back und check ausgefuehrt und der Timer auf 0 zurueck gesetzt.
+ * - Sobald der Check Button gedrueckt wird. muss man danach sofort einmal die reset() Methode aufrufen
+ * - Idee ist es gibt nur einen Timer, dieser laeuft das gesamte Programm ueber.
  * - Soll die BabystepClock angehalten werden geschieht dies durch das aufrufen der Methode stop();
  * - Soll die BabystepClock wieder gestartet werden, geschieht dies durch restart();
  */
@@ -28,8 +28,8 @@ public class BabystepClock {
     }
 
     /**
-     * Startmethode der BabyClock, erstellt einen neuen Thread dessen Aufgabe es ist jede Sekunde den Zähler
-     * der BabyClock um eins zu erhöhen, undzwa solange wie der Timer der Uhr laufen soll.
+     * Startmethode der BabyClock, erstellt einen neuen Thread dessen Aufgabe es ist jede Sekunde den Zaehler
+     * der BabyClock um eins zu erhoehen, undzwa solange wie der Timer der Uhr laufen soll.
      */
     public void start(){
         Thread time = new Thread(new Runnable() {
@@ -55,22 +55,22 @@ public class BabystepClock {
     }
 
     /**
-     * Setzt den Zähler der BabyClock wieder auf sienen Uhrsprünglichen Wert zurück
+     * Setzt den Zaehler der BabyClock wieder auf sienen Uhrspruenglichen Wert zurueck
      */
     public void reset (){
         currenttime =-1;
     }
 
     /**
-     * Stoppt das hochzählen des BabyClock Zählers.
+     * Stoppt das hochzaehlen des BabyClock Zaehlers.
      */
     public void stop(){
         running=false;
         
     }
     /**
-     * Setzt den Zähler der BabyClock wieder auf den Anfangswert zurück und startet das sekündliche
-     * Hochzählen des Timers wieder.
+     * Setzt den Zaehler der BabyClock wieder auf den Anfangswert zurueck und startet das sekuendliche
+     * Hochzaehlen des Timers wieder.
      */
     public void restart(){
         this.reset();

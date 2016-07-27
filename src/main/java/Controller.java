@@ -279,8 +279,8 @@ public class Controller {
 	/**
 	 *Inspired by check()
 	 * Die Methode kompiliert den Code und die Tests. Gibt es dabei Fehler werden diese in dem Terminal ausgegeben.
-	 * Außerdem wird eine -1 returned, damit die Phase in der Check Methode nicht geändert wird.
-	 * Kompilieret Beides, so werden die Tests durchgeführt und es wird die Anzahl der fehlgeschlagenen Tests returned.
+	 * Außerdem wird eine -1 returned, damit die Phase in der Check Methode nicht geaendert wird.
+	 * Kompilieret Beides, so werden die Tests durchgefuehrt und es wird die Anzahl der fehlgeschlagenen Tests returned.
 	 * @param codecontent
 	 * @param testcontent
      * @return
