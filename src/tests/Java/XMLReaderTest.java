@@ -13,7 +13,7 @@ public class XMLReaderTest {
 
     @Test
     public void testdata1(){
-        PresetDataBase.presetpath = "./src/main/tests/firstpresettest.txt";
+        PresetDataBase.presetpath = "./src/tests/Java/firstpresettest.txt";
         XMLReader.reader();
         assertEquals("NeverLucky",PresetDataBase.codeclassname);
         assertEquals("NeverLuckyTest",PresetDataBase.testclassname);
@@ -24,7 +24,7 @@ public class XMLReaderTest {
 
     @Test
     public void testdata2(){
-        PresetDataBase.presetpath = "./src/main/tests/secondpresettest.txt";
+        PresetDataBase.presetpath = "./src/tests/Java/secondpresettest.txt";
         XMLReader.reader();
         assertEquals("Testclassname",PresetDataBase.codeclassname);
         assertEquals("Testtestclassname",PresetDataBase.testclassname);
