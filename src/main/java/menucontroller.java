@@ -91,7 +91,7 @@ public class menucontroller {
     	catch(RuntimeException e){
     		Alert alert1=new Alert(Alert.AlertType.ERROR);
     		alert1.setTitle("FEHLER");
-    		alert1.setContentText("Keine Datei ausgewählt!!!");
+    		alert1.setContentText("Keine Datei ausgewaehlt!!!");
     		alert1.showAndWait();
     		
     	}
@@ -116,7 +116,7 @@ public class menucontroller {
     	catch(RuntimeException e){
     		Alert alert1=new Alert(Alert.AlertType.ERROR);
     		alert1.setTitle("FEHLER");
-    		alert1.setContentText("Keine Datei ausgewählt!!!");
+    		alert1.setContentText("Keine Datei ausgewaehlt!!!");
     		alert1.showAndWait();
     		
     	}
