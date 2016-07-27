@@ -1,0 +1,7 @@
+
+	npublic class HelloWorld{
+	public static void main(String[] args){
+		System.out.println("Hello World!");
+	}
+}
+ZUngÃ¼ltige Angabe bei Babysteps-Mode, default Einstellung (false) wurde Ã¼bernommen.

@@ -15,4 +15,21 @@ public class JavaToEditorTest {
                 "\t}\n" +
                 "}",testobjekt.read());
     }
+    
+    @Test
+    public void readJavaToEditorTestText(){
+    	JavaToEditor testIt = new JavaToEditor("JavaToEditorTestText");
+    	assertEquals("public class javaToEditorTestText{\n" +
+    	"\tpublic static void main(String[] args){\n" +
+    	"\t\ttestText();\n" +
+    	"\t}\n" +
+    	"\tpublic static void textTest{\n" +
+    	"\t\tfor(int i = 0; i < 10; i++){\n" +
+    	"\t\t\tif(true){\n" + 
+    	"\t\t\t\treturn\n" + 
+    	"\t\t\t}\n" +
+    	"\t\t}\n" +
+    	"\t}\n" +
+    	"}", testIt.read());
+    }
 }

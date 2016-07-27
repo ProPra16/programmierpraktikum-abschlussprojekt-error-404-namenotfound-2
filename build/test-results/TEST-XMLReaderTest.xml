@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="XMLReaderTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2016-07-27T15:03:46" hostname="Yulian-PC" time="0.002">
+  <properties/>
+  <testcase name="testdata1" classname="XMLReaderTest" time="0.001"/>
+  <testcase name="testdata2" classname="XMLReaderTest" time="0.001"/>
+  <system-out><![CDATA[UngÃ¼ltige Angabe bei Babysteps-Mode, default Einstellung (false) wurde Ã¼bernommen.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
