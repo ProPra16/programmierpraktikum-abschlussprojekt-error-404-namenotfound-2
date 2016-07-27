@@ -1,8 +1,9 @@
 
+
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -11,7 +12,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -89,10 +89,10 @@ public class menucontroller {
 	    	}
     	}
     	catch(RuntimeException e){
-    		Alert alert1=new Alert(Alert.AlertType.ERROR);
+    		/*Alert alert1=new Alert(Alert.AlertType.ERROR);
     		alert1.setTitle("FEHLER");
     		alert1.setContentText("Keine Datei ausgewaehlt!!!");
-    		alert1.showAndWait();
+    		alert1.showAndWait();*/
     		
     	}
     	
@@ -114,10 +114,10 @@ public class menucontroller {
 	    	}
     	}
     	catch(RuntimeException e){
-    		Alert alert1=new Alert(Alert.AlertType.ERROR);
+    		/*Alert alert1=new Alert(Alert.AlertType.ERROR);
     		alert1.setTitle("FEHLER");
     		alert1.setContentText("Keine Datei ausgewaehlt!!!");
-    		alert1.showAndWait();
+    		alert1.showAndWait();*/
     		
     	}
     }
